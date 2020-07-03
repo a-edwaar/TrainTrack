@@ -75,10 +75,10 @@
 		CA25A24C24AF532F0076B37B /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22224AF532E0076B37B /* StationView.swift */; };
 		CA25A24D24AF532F0076B37B /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22224AF532E0076B37B /* StationView.swift */; };
 		CA25A24E24AF532F0076B37B /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22224AF532E0076B37B /* StationView.swift */; };
-		CA25A24F24AF532F0076B37B /* ServiceComponenetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceComponenetView.swift */; };
-		CA25A25024AF532F0076B37B /* ServiceComponenetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceComponenetView.swift */; };
-		CA25A25124AF532F0076B37B /* ServiceComponenetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceComponenetView.swift */; };
-		CA25A25224AF532F0076B37B /* ServiceComponenetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceComponenetView.swift */; };
+		CA25A24F24AF532F0076B37B /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceView.swift */; };
+		CA25A25024AF532F0076B37B /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceView.swift */; };
+		CA25A25124AF532F0076B37B /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceView.swift */; };
+		CA25A25224AF532F0076B37B /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceView.swift */; };
 		CA25A25324AF532F0076B37B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22424AF532E0076B37B /* ContentView.swift */; };
 		CA25A25424AF532F0076B37B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22424AF532E0076B37B /* ContentView.swift */; };
 		CA25A25524AF532F0076B37B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22424AF532E0076B37B /* ContentView.swift */; };
@@ -90,12 +90,12 @@
 		CA25A25C24AFC0F40076B37B /* View+NavigationViewTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A25B24AFC0F40076B37B /* View+NavigationViewTitle.swift */; };
 		CA25A27624AFC2870076B37B /* TestStation_Arrival.json in Resources */ = {isa = PBXBuildFile; fileRef = CA25A26C24AFC2870076B37B /* TestStation_Arrival.json */; };
 		CA25A27724AFC2870076B37B /* TestStation_Departure.json in Resources */ = {isa = PBXBuildFile; fileRef = CA25A26D24AFC2870076B37B /* TestStation_Departure.json */; };
-		CA25A27824AFC2870076B37B /* Test_Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A26E24AFC2870076B37B /* Test_Station.swift */; };
-		CA25A27924AFC2870076B37B /* Test_Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A26F24AFC2870076B37B /* Test_Service.swift */; };
+		CA25A27824AFC2870076B37B /* Tests_Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A26E24AFC2870076B37B /* Tests_Station.swift */; };
+		CA25A27924AFC2870076B37B /* Tests_Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A26F24AFC2870076B37B /* Tests_Service.swift */; };
 		CA25A27A24AFC2870076B37B /* Tests_URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27124AFC2870076B37B /* Tests_URLRequest.swift */; };
-		CA25A27B24AFC2870076B37B /* Test_NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27224AFC2870076B37B /* Test_NetworkError.swift */; };
-		CA25A27C24AFC2870076B37B /* Test_RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27324AFC2870076B37B /* Test_RequestService.swift */; };
-		CA25A27D24AFC2870076B37B /* Test_NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27424AFC2870076B37B /* Test_NetworkManager.swift */; };
+		CA25A27B24AFC2870076B37B /* Tests_NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27224AFC2870076B37B /* Tests_NetworkError.swift */; };
+		CA25A27C24AFC2870076B37B /* Tests_RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27324AFC2870076B37B /* Tests_RequestService.swift */; };
+		CA25A27D24AFC2870076B37B /* Tests_NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27424AFC2870076B37B /* Tests_NetworkManager.swift */; };
 		CA25A27E24AFC2870076B37B /* Tests_Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A27524AFC2870076B37B /* Tests_Type.swift */; };
 		CA25A27F24AFC2BF0076B37B /* URLRequest+transportapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21A24AF532E0076B37B /* URLRequest+transportapi.swift */; };
 		CA25A28024AFC2BF0076B37B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21924AF532E0076B37B /* NetworkManager.swift */; };
@@ -112,12 +112,34 @@
 		CA25A28B24AFC2D50076B37B /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F724AF52C80076B37B /* Station.swift */; };
 		CA25A28C24AFC2D50076B37B /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F424AF52C80076B37B /* Services.swift */; };
 		CA25A28D24AFC2D50076B37B /* Status+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F624AF52C80076B37B /* Status+SwiftUI.swift */; };
+		CA6E6FE024B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
+		CA6E6FE124B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
+		CA6E6FE224B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
+		CA6E6FE324B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
+		CA6E6FE424B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
 		CAC53F6324AF521800EF2D54 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F6224AF521800EF2D54 /* Tests_iOS.swift */; };
 		CAC53F6E24AF521800EF2D54 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F6D24AF521800EF2D54 /* Tests_macOS.swift */; };
 		CAC53F7024AF521800EF2D54 /* TrainTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F4724AF521600EF2D54 /* TrainTrackApp.swift */; };
 		CAC53F7124AF521800EF2D54 /* TrainTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F4724AF521600EF2D54 /* TrainTrackApp.swift */; };
 		CAC53F7424AF521800EF2D54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
 		CAC53F7524AF521800EF2D54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
+		CAE9C9E824B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
+		CAE9C9E924B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
+		CAE9C9EA24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
+		CAE9C9EB24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
+		CAE9C9EC24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
+		CAE9C9EE24B1C0490089D613 /* ServiceDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */; };
+		CAE9C9EF24B1C0490089D613 /* ServiceDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */; };
+		CAE9C9F024B1C0490089D613 /* ServiceDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */; };
+		CAE9C9F124B1C0490089D613 /* ServiceDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */; };
+		CAE9C9F224B1C0490089D613 /* ServiceDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */; };
+		CAE9C9F424B1C27A0089D613 /* StationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */; };
+		CAE9C9F524B1C27A0089D613 /* StationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */; };
+		CAE9C9F624B1C27A0089D613 /* StationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */; };
+		CAE9C9F724B1C27A0089D613 /* StationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */; };
+		CAE9C9F824B1C27A0089D613 /* StationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */; };
+		CAE9C9FA24B1C6C60089D613 /* Tests_Service+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F924B1C6C60089D613 /* Tests_Service+SwiftUI.swift */; };
+		CAE9C9FC24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9FB24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,7 +184,7 @@
 		CA25A21F24AF532E0076B37B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
 		CA25A22124AF532E0076B37B /* ServicesForStationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesForStationView.swift; sourceTree = "<group>"; };
 		CA25A22224AF532E0076B37B /* StationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
-		CA25A22324AF532E0076B37B /* ServiceComponenetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceComponenetView.swift; sourceTree = "<group>"; };
+		CA25A22324AF532E0076B37B /* ServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 		CA25A22424AF532E0076B37B /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CA25A22624AF532F0076B37B /* StationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
 		CA25A25B24AFC0F40076B37B /* View+NavigationViewTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+NavigationViewTitle.swift"; sourceTree = "<group>"; };
@@ -170,13 +192,14 @@
 		CA25A26524AFC20B0076B37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA25A26C24AFC2870076B37B /* TestStation_Arrival.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestStation_Arrival.json; sourceTree = "<group>"; };
 		CA25A26D24AFC2870076B37B /* TestStation_Departure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestStation_Departure.json; sourceTree = "<group>"; };
-		CA25A26E24AFC2870076B37B /* Test_Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Station.swift; sourceTree = "<group>"; };
-		CA25A26F24AFC2870076B37B /* Test_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Service.swift; sourceTree = "<group>"; };
+		CA25A26E24AFC2870076B37B /* Tests_Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_Station.swift; sourceTree = "<group>"; };
+		CA25A26F24AFC2870076B37B /* Tests_Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_Service.swift; sourceTree = "<group>"; };
 		CA25A27124AFC2870076B37B /* Tests_URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_URLRequest.swift; sourceTree = "<group>"; };
-		CA25A27224AFC2870076B37B /* Test_NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_NetworkError.swift; sourceTree = "<group>"; };
-		CA25A27324AFC2870076B37B /* Test_RequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_RequestService.swift; sourceTree = "<group>"; };
-		CA25A27424AFC2870076B37B /* Test_NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_NetworkManager.swift; sourceTree = "<group>"; };
+		CA25A27224AFC2870076B37B /* Tests_NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_NetworkError.swift; sourceTree = "<group>"; };
+		CA25A27324AFC2870076B37B /* Tests_RequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_RequestService.swift; sourceTree = "<group>"; };
+		CA25A27424AFC2870076B37B /* Tests_NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_NetworkManager.swift; sourceTree = "<group>"; };
 		CA25A27524AFC2870076B37B /* Tests_Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_Type.swift; sourceTree = "<group>"; };
+		CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCancelledView.swift; sourceTree = "<group>"; };
 		CAC53F4724AF521600EF2D54 /* TrainTrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackApp.swift; sourceTree = "<group>"; };
 		CAC53F4924AF521800EF2D54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAC53F4E24AF521800EF2D54 /* TrainTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +213,11 @@
 		CAC53F6924AF521800EF2D54 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC53F6D24AF521800EF2D54 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		CAC53F6F24AF521800EF2D54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDestinationView.swift; sourceTree = "<group>"; };
+		CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDurationView.swift; sourceTree = "<group>"; };
+		CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationLoadingView.swift; sourceTree = "<group>"; };
+		CAE9C9F924B1C6C60089D613 /* Tests_Service+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tests_Service+SwiftUI.swift"; sourceTree = "<group>"; };
+		CAE9C9FB24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tests_Status+SwiftUI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,10 +299,14 @@
 		CA25A22024AF532E0076B37B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA25A22124AF532E0076B37B /* ServicesForStationView.swift */,
-				CA25A22224AF532E0076B37B /* StationView.swift */,
-				CA25A22324AF532E0076B37B /* ServiceComponenetView.swift */,
 				CA25A22424AF532E0076B37B /* ContentView.swift */,
+				CA25A22224AF532E0076B37B /* StationView.swift */,
+				CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */,
+				CA25A22124AF532E0076B37B /* ServicesForStationView.swift */,
+				CA25A22324AF532E0076B37B /* ServiceView.swift */,
+				CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */,
+				CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */,
+				CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,8 +334,10 @@
 			children = (
 				CA25A26C24AFC2870076B37B /* TestStation_Arrival.json */,
 				CA25A26D24AFC2870076B37B /* TestStation_Departure.json */,
-				CA25A26E24AFC2870076B37B /* Test_Station.swift */,
-				CA25A26F24AFC2870076B37B /* Test_Service.swift */,
+				CA25A26E24AFC2870076B37B /* Tests_Station.swift */,
+				CA25A26F24AFC2870076B37B /* Tests_Service.swift */,
+				CAE9C9F924B1C6C60089D613 /* Tests_Service+SwiftUI.swift */,
+				CAE9C9FB24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,9 +346,9 @@
 			isa = PBXGroup;
 			children = (
 				CA25A27124AFC2870076B37B /* Tests_URLRequest.swift */,
-				CA25A27224AFC2870076B37B /* Test_NetworkError.swift */,
-				CA25A27324AFC2870076B37B /* Test_RequestService.swift */,
-				CA25A27424AFC2870076B37B /* Test_NetworkManager.swift */,
+				CA25A27224AFC2870076B37B /* Tests_NetworkError.swift */,
+				CA25A27324AFC2870076B37B /* Tests_RequestService.swift */,
+				CA25A27424AFC2870076B37B /* Tests_NetworkManager.swift */,
 				CA25A27524AFC2870076B37B /* Tests_Type.swift */,
 			);
 			path = Networking;
@@ -585,24 +619,30 @@
 			files = (
 				CA25A28024AFC2BF0076B37B /* NetworkManager.swift in Sources */,
 				CA25A28724AFC2D50076B37B /* AlertItem.swift in Sources */,
-				CA25A27824AFC2870076B37B /* Test_Station.swift in Sources */,
+				CA25A27824AFC2870076B37B /* Tests_Station.swift in Sources */,
 				CA25A28824AFC2D50076B37B /* Status.swift in Sources */,
-				CA25A27D24AFC2870076B37B /* Test_NetworkManager.swift in Sources */,
+				CA25A27D24AFC2870076B37B /* Tests_NetworkManager.swift in Sources */,
 				CA25A28124AFC2BF0076B37B /* RequestService.swift in Sources */,
 				CA25A28B24AFC2D50076B37B /* Station.swift in Sources */,
 				CA25A28424AFC2C30076B37B /* JSONDecoderProtocol.swift in Sources */,
-				CA25A27B24AFC2870076B37B /* Test_NetworkError.swift in Sources */,
+				CA25A27B24AFC2870076B37B /* Tests_NetworkError.swift in Sources */,
 				CA25A28224AFC2BF0076B37B /* Type.swift in Sources */,
 				CA25A28C24AFC2D50076B37B /* Services.swift in Sources */,
+				CAE9C9FA24B1C6C60089D613 /* Tests_Service+SwiftUI.swift in Sources */,
 				CA25A28924AFC2D50076B37B /* Service+SwiftUI.swift in Sources */,
+				CA6E6FE424B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A28A24AFC2D50076B37B /* Service.swift in Sources */,
+				CAE9C9F824B1C27A0089D613 /* StationLoadingView.swift in Sources */,
 				CA25A28D24AFC2D50076B37B /* Status+SwiftUI.swift in Sources */,
-				CA25A27924AFC2870076B37B /* Test_Service.swift in Sources */,
+				CA25A27924AFC2870076B37B /* Tests_Service.swift in Sources */,
 				CA25A27A24AFC2870076B37B /* Tests_URLRequest.swift in Sources */,
-				CA25A27C24AFC2870076B37B /* Test_RequestService.swift in Sources */,
+				CA25A27C24AFC2870076B37B /* Tests_RequestService.swift in Sources */,
 				CA25A28324AFC2BF0076B37B /* NetworkError.swift in Sources */,
+				CAE9C9F224B1C0490089D613 /* ServiceDurationView.swift in Sources */,
 				CA25A27F24AFC2BF0076B37B /* URLRequest+transportapi.swift in Sources */,
 				CA25A27E24AFC2870076B37B /* Tests_Type.swift in Sources */,
+				CAE9C9EC24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
+				CAE9C9FC24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift in Sources */,
 				CA25A28624AFC2C30076B37B /* NetworkManagerProtocol.swift in Sources */,
 				CA25A28524AFC2C30076B37B /* RequestServiceProtocol.swift in Sources */,
 			);
@@ -619,19 +659,23 @@
 				CA25A23724AF532F0076B37B /* NetworkError.swift in Sources */,
 				CA25A22F24AF532F0076B37B /* NetworkManager.swift in Sources */,
 				CA25A1FA24AF52C80076B37B /* Service+SwiftUI.swift in Sources */,
+				CAE9C9E824B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
 				CA25A25724AF532F0076B37B /* StationViewModel.swift in Sources */,
 				CA25A1FE24AF52C80076B37B /* Services.swift in Sources */,
 				CA25A20224AF52C80076B37B /* Service.swift in Sources */,
 				CA25A22724AF532F0076B37B /* RequestService.swift in Sources */,
 				CA25A20E24AF52C80076B37B /* Status.swift in Sources */,
 				CA25A22B24AF532F0076B37B /* Type.swift in Sources */,
+				CAE9C9EE24B1C0490089D613 /* ServiceDurationView.swift in Sources */,
+				CAE9C9F424B1C27A0089D613 /* StationLoadingView.swift in Sources */,
 				CA25A20624AF52C80076B37B /* Status+SwiftUI.swift in Sources */,
 				CAC53F7024AF521800EF2D54 /* TrainTrackApp.swift in Sources */,
 				CA25A21224AF52C80076B37B /* AlertItem.swift in Sources */,
 				CA25A24324AF532F0076B37B /* JSONDecoderProtocol.swift in Sources */,
 				CA25A23F24AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
 				CA25A20A24AF52C80076B37B /* Station.swift in Sources */,
-				CA25A24F24AF532F0076B37B /* ServiceComponenetView.swift in Sources */,
+				CA25A24F24AF532F0076B37B /* ServiceView.swift in Sources */,
+				CA6E6FE024B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A24724AF532F0076B37B /* ServicesForStationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,15 +696,19 @@
 				CA25A1FF24AF52C80076B37B /* Services.swift in Sources */,
 				CA25A20324AF52C80076B37B /* Service.swift in Sources */,
 				CA25A22824AF532F0076B37B /* RequestService.swift in Sources */,
+				CA6E6FE124B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A20F24AF52C80076B37B /* Status.swift in Sources */,
+				CAE9C9F524B1C27A0089D613 /* StationLoadingView.swift in Sources */,
 				CA25A22C24AF532F0076B37B /* Type.swift in Sources */,
 				CA25A20724AF52C80076B37B /* Status+SwiftUI.swift in Sources */,
 				CAC53F7124AF521800EF2D54 /* TrainTrackApp.swift in Sources */,
 				CA25A21324AF52C80076B37B /* AlertItem.swift in Sources */,
 				CA25A24424AF532F0076B37B /* JSONDecoderProtocol.swift in Sources */,
+				CAE9C9EF24B1C0490089D613 /* ServiceDurationView.swift in Sources */,
 				CA25A24024AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
 				CA25A20B24AF52C80076B37B /* Station.swift in Sources */,
-				CA25A25024AF532F0076B37B /* ServiceComponenetView.swift in Sources */,
+				CAE9C9E924B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
+				CA25A25024AF532F0076B37B /* ServiceView.swift in Sources */,
 				CA25A24824AF532F0076B37B /* ServicesForStationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,12 +724,15 @@
 				CA25A21424AF52C80076B37B /* AlertItem.swift in Sources */,
 				CA25A20424AF52C80076B37B /* Service.swift in Sources */,
 				CA25A25924AF532F0076B37B /* StationViewModel.swift in Sources */,
+				CAE9C9EA24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
 				CA25A25524AF532F0076B37B /* ContentView.swift in Sources */,
 				CA25A23124AF532F0076B37B /* NetworkManager.swift in Sources */,
 				CA25A21024AF52C80076B37B /* Status.swift in Sources */,
-				CA25A25124AF532F0076B37B /* ServiceComponenetView.swift in Sources */,
+				CA25A25124AF532F0076B37B /* ServiceView.swift in Sources */,
 				CA25A24524AF532F0076B37B /* JSONDecoderProtocol.swift in Sources */,
 				CA25A22D24AF532F0076B37B /* Type.swift in Sources */,
+				CAE9C9F024B1C0490089D613 /* ServiceDurationView.swift in Sources */,
+				CAE9C9F624B1C27A0089D613 /* StationLoadingView.swift in Sources */,
 				CA25A20024AF52C80076B37B /* Services.swift in Sources */,
 				CA25A1FC24AF52C80076B37B /* Service+SwiftUI.swift in Sources */,
 				CA25A20C24AF52C80076B37B /* Station.swift in Sources */,
@@ -689,6 +740,7 @@
 				CA25A23524AF532F0076B37B /* URLRequest+transportapi.swift in Sources */,
 				CA25A20824AF52C80076B37B /* Status+SwiftUI.swift in Sources */,
 				CA25A24124AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
+				CA6E6FE224B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A23D24AF532F0076B37B /* RequestServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,12 +756,15 @@
 				CA25A21524AF52C80076B37B /* AlertItem.swift in Sources */,
 				CA25A20524AF52C80076B37B /* Service.swift in Sources */,
 				CA25A25A24AF532F0076B37B /* StationViewModel.swift in Sources */,
+				CAE9C9EB24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
 				CA25A25624AF532F0076B37B /* ContentView.swift in Sources */,
 				CA25A23224AF532F0076B37B /* NetworkManager.swift in Sources */,
 				CA25A21124AF52C80076B37B /* Status.swift in Sources */,
-				CA25A25224AF532F0076B37B /* ServiceComponenetView.swift in Sources */,
+				CA25A25224AF532F0076B37B /* ServiceView.swift in Sources */,
 				CA25A24624AF532F0076B37B /* JSONDecoderProtocol.swift in Sources */,
 				CA25A22E24AF532F0076B37B /* Type.swift in Sources */,
+				CAE9C9F124B1C0490089D613 /* ServiceDurationView.swift in Sources */,
+				CAE9C9F724B1C27A0089D613 /* StationLoadingView.swift in Sources */,
 				CA25A20124AF52C80076B37B /* Services.swift in Sources */,
 				CA25A1FD24AF52C80076B37B /* Service+SwiftUI.swift in Sources */,
 				CA25A20D24AF52C80076B37B /* Station.swift in Sources */,
@@ -717,6 +772,7 @@
 				CA25A23624AF532F0076B37B /* URLRequest+transportapi.swift in Sources */,
 				CA25A20924AF52C80076B37B /* Status+SwiftUI.swift in Sources */,
 				CA25A24224AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
+				CA6E6FE324B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A23E24AF532F0076B37B /* RequestServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

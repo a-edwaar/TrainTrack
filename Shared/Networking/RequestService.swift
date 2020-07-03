@@ -23,7 +23,7 @@ public struct RequestService {
             case .success(let data):
                 do {
                     let stationStatus = try j.decode(Station.self, from: data)
-                    completion(.success(stationStatus))
+                    completion(.success(sortByExpectedMins(station: stationStatus, type: type)))
                 } catch {
                     completion(.failure(error))
                 }
@@ -31,5 +31,27 @@ public struct RequestService {
                 completion(.failure(error))
             }
         }
+    }
+    
+    private func sortByExpectedMins(station: Station, type: Type) -> Station{
+        guard var services = type == .departure ? station.departures?.all : station.arrivals?.all else{
+            return station
+        }
+        services.sort(by: { (comparingService, currentService) in
+            let expMinsComparingService = type == .departure ? comparingService.expDepartureMins : comparingService.expArrivalMins
+            let expMinsCurrentService = type == .departure ? currentService.expDepartureMins : currentService.expArrivalMins
+            if expMinsComparingService == nil{
+                return false
+            }else if expMinsCurrentService == nil {
+                /// no time estimate needs to go to back of list
+                return true
+            }else if expMinsComparingService! < expMinsCurrentService! {
+                return true
+            }
+            return false
+        })
+        var newSortedStation = station
+        newSortedStation.setServices(Services(all: services), type: type)
+        return newSortedStation
     }
 }

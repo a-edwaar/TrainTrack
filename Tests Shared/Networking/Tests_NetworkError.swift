@@ -1,5 +1,5 @@
 //
-//  Test_NetworkError.swift
+//  Tests_NetworkError.swift
 //  Tests Shared
 //
 //  Created by Archie Edwards on 30/06/2020.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Test_NetworkError: XCTestCase {
+class Tests_NetworkError: XCTestCase {
 
     func testNoData() throws{
         let noDataError = NetworkError.noData
