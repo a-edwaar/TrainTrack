@@ -1,5 +1,5 @@
 //
-//  Test_NetworkManager.swift
+//  Tests_NetworkManager.swift
 //  Tests Shared
 //
 //  Created by Archie Edwards on 30/06/2020.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Test_NetworkManager : XCTestCase {
+class Tests_NetworkManager : XCTestCase {
     
     func testExecuteRequest_failure_error() throws {
         

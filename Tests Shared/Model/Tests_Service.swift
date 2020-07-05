@@ -1,5 +1,5 @@
 //
-//  Test_Service.swift
+//  Tests_Service.swift
 //  Tests Shared
 //
 //  Created by Archie Edwards on 01/07/2020.
@@ -7,12 +7,12 @@
 
 import XCTest
 
-class Test_Service : XCTestCase{
+class Tests_Service : XCTestCase{
     
     func testDeparture() throws {
         
         /// read station json from file
-        let bundle = Bundle(for: Test_Station.self)
+        let bundle = Bundle(for: Tests_Station.self)
         guard let stationFileURL = bundle.url(forResource: "TestStation_Departure", withExtension: "json") else {
             return XCTFail("Test failed to find TestStation_Departure.json")
         }
@@ -48,7 +48,7 @@ class Test_Service : XCTestCase{
     func testArrival(){
         
         /// read station json from file
-        let bundle = Bundle(for: Test_Station.self)
+        let bundle = Bundle(for: Tests_Station.self)
         guard let stationFileURL = bundle.url(forResource: "TestStation_Arrival", withExtension: "json") else {
             return XCTFail("Test failed to find TestStation_Arrival.json")
         }

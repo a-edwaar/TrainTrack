@@ -5,8 +5,6 @@
 //  Created by Archie Edwards on 03/07/2020.
 //
 
-import SwiftUI
-
 extension Service{
     func expMinsForProgressBar(type: Type = .departure) -> Float{
         /// need progress bar friendly value from 0 to 1
