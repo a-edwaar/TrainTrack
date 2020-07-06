@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Services: Codable{
-    let all : [Service]
+    var all : [Service]
     enum CodingKeys: String, CodingKey {
         case all = "all"
     }

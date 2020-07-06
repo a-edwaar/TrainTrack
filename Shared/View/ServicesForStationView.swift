@@ -15,8 +15,12 @@ struct ServicesForStationView: View {
     
     var body: some View{
         VStack{
-            Text(station)
-                .bold()
+            HStack{
+                Spacer()
+                Text(station)
+                    .bold()
+                Spacer()
+            }
             List {
                 ForEach(services) { service in
                     ServiceView(service: service, type: type)
@@ -36,7 +40,11 @@ struct ServicesForStationView_Previews: PreviewProvider {
             Service(id: "4", platform: "2a", operatorName: "West Midlands", origin: "Southampton", destination: "Birmingham", status: .onTime, aimedDepartureTime: "17:40", aimedArrivalTime: "17:40", expDepartureTime: "17:40", expArrivalTime: "17:40", expDepartureMins: 50, expArrivalMins: 50)
         ]
         
-        return ServicesForStationView(station: "Birmingham New Street",type: .departure, services: services)
-            .preferredColorScheme(.light)
+        return Group {
+            ServicesForStationView(station: "Birmingham New Street",type: .departure, services: services)
+                .preferredColorScheme(.dark)
+            ServicesForStationView(station: "Birmingham New Street",type: .departure, services: services)
+                .preferredColorScheme(.light)
+        }
     }
 }

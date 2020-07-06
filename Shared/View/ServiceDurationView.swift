@@ -11,14 +11,22 @@ struct ServiceDurationView: View {
     var service : Service
     var type : Type
     var body: some View {
-        VStack(alignment: .leading){
-            Text(service.expMinsForStatus(type: type))
-                .font(.largeTitle)
-                .foregroundColor(.secondary)
-                .bold()
-            ProgressView(value: service.expMinsForProgressBar(type: type) , total: 1)
-                .progressViewStyle(LinearProgressViewStyle(tint: service.status?.color ?? .green))
-        }
+        GeometryReader{ proxy in
+            VStack(alignment: .leading, spacing: 10){
+                Text(service.expMinsForStatus(type: type))
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+                ZStack(alignment: .leading){
+                    Rectangle()
+                        .foregroundColor(.gray)
+                        .opacity(0.5)
+                        .frame(width: proxy.size.width, height: 5)
+                    Rectangle()
+                        .foregroundColor(service.status?.color)
+                        .frame(width: proxy.size.width * CGFloat(service.expMinsForProgressBar(type: type)), height: 5)
+                }
+            }
+        }.frame(height: 40)
     }
 }
 
