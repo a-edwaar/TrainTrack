@@ -13,12 +13,13 @@ struct ServiceDestinationView: View {
     var body: some View {
         HStack{
             Text(destination ?? "Unknown")
-                .font(.largeTitle)
-                .bold()
+                .font(.headline)
             Spacer()
             if platform != nil{
                 Text("Plat")
+                    .font(.footnote)
                 Text(platform!)
+                    .font(.footnote)
                     .bold()
             }
         }

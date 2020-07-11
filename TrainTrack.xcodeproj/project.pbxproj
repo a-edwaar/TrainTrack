@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA23ED7D24B4F1B500C5CE87 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA54415E24B325E800982C6E /* WidgetKit.framework */; };
+		CA23ED7E24B4F1B500C5CE87 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA54416024B325E800982C6E /* SwiftUI.framework */; };
+		CA23ED8124B4F1B500C5CE87 /* TrainTrackWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA23ED8024B4F1B500C5CE87 /* TrainTrackWidget.swift */; };
+		CA23ED8324B4F1BB00C5CE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA23ED8224B4F1BB00C5CE87 /* Assets.xcassets */; };
+		CA23ED8724B4F1BB00C5CE87 /* TrainTrackWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA23ED7C24B4F1B500C5CE87 /* TrainTrackWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CA25A1FA24AF52C80076B37B /* Service+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F324AF52C80076B37B /* Service+SwiftUI.swift */; };
 		CA25A1FB24AF52C80076B37B /* Service+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F324AF52C80076B37B /* Service+SwiftUI.swift */; };
 		CA25A1FC24AF52C80076B37B /* Service+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F324AF52C80076B37B /* Service+SwiftUI.swift */; };
@@ -117,12 +122,35 @@
 		CA6E6FE224B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
 		CA6E6FE324B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
 		CA6E6FE424B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
+		CAA787C124B4F29700377A11 /* ServiceDurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */; };
+		CAA787C224B4F29700377A11 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
+		CAA787C324B4F29700377A11 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22324AF532E0076B37B /* ServiceView.swift */; };
+		CAA787C424B4F29700377A11 /* ServiceCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */; };
+		CAA787C524B4F2A400377A11 /* Service+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F324AF52C80076B37B /* Service+SwiftUI.swift */; };
+		CAA787C624B4F2A400377A11 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F824AF52C80076B37B /* Status.swift */; };
+		CAA787C724B4F2A400377A11 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F424AF52C80076B37B /* Services.swift */; };
+		CAA787C824B4F2A400377A11 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F724AF52C80076B37B /* Station.swift */; };
+		CAA787C924B4F2A400377A11 /* Status+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F624AF52C80076B37B /* Status+SwiftUI.swift */; };
+		CAA787CA24B4F2A400377A11 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F524AF52C80076B37B /* Service.swift */; };
+		CAA787CB24B4F2A400377A11 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A1F924AF52C80076B37B /* AlertItem.swift */; };
+		CAA787CC24B4F2B200377A11 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21824AF532E0076B37B /* Type.swift */; };
+		CAA787CD24B4F2B200377A11 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21B24AF532E0076B37B /* NetworkError.swift */; };
+		CAA787CE24B4F2B200377A11 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21724AF532E0076B37B /* RequestService.swift */; };
+		CAA787CF24B4F2B200377A11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21924AF532E0076B37B /* NetworkManager.swift */; };
+		CAA787D024B4F2B200377A11 /* URLRequest+transportapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21A24AF532E0076B37B /* URLRequest+transportapi.swift */; };
+		CAA787D124B4F2C700377A11 /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21F24AF532E0076B37B /* JSONDecoderProtocol.swift */; };
+		CAA787D224B4F2C700377A11 /* RequestServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21D24AF532E0076B37B /* RequestServiceProtocol.swift */; };
+		CAA787D324B4F2C700377A11 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A21E24AF532E0076B37B /* NetworkManagerProtocol.swift */; };
 		CAC53F6324AF521800EF2D54 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F6224AF521800EF2D54 /* Tests_iOS.swift */; };
 		CAC53F6E24AF521800EF2D54 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F6D24AF521800EF2D54 /* Tests_macOS.swift */; };
 		CAC53F7024AF521800EF2D54 /* TrainTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F4724AF521600EF2D54 /* TrainTrackApp.swift */; };
 		CAC53F7124AF521800EF2D54 /* TrainTrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC53F4724AF521600EF2D54 /* TrainTrackApp.swift */; };
 		CAC53F7424AF521800EF2D54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
 		CAC53F7524AF521800EF2D54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
+		CAE47B6124B5DDD3001292F1 /* ServicesForStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA25A22124AF532E0076B37B /* ServicesForStationView.swift */; };
+		CAE6C21424B718C400524C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
+		CAE6C21524B718C800524C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
+		CAE6C21624B718C900524C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
 		CAE9C9E824B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
 		CAE9C9E924B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
 		CAE9C9EA24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
@@ -143,6 +171,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CA23ED8524B4F1BB00C5CE87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAC53F4224AF521500EF2D54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA23ED7B24B4F1B500C5CE87;
+			remoteInfo = TrainTrackWidgetExtension;
+		};
 		CA25A26624AFC20B0076B37B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAC53F4224AF521500EF2D54 /* Project object */;
@@ -166,7 +201,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CA54417124B325EC00982C6E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CA23ED8724B4F1BB00C5CE87 /* TrainTrackWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		CA23ED7C24B4F1B500C5CE87 /* TrainTrackWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TrainTrackWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA23ED8024B4F1B500C5CE87 /* TrainTrackWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackWidget.swift; sourceTree = "<group>"; };
+		CA23ED8224B4F1BB00C5CE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA23ED8424B4F1BB00C5CE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA25A1F324AF52C80076B37B /* Service+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+SwiftUI.swift"; sourceTree = "<group>"; };
 		CA25A1F424AF52C80076B37B /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		CA25A1F524AF52C80076B37B /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -199,6 +252,8 @@
 		CA25A27324AFC2870076B37B /* Tests_RequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_RequestService.swift; sourceTree = "<group>"; };
 		CA25A27424AFC2870076B37B /* Tests_NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_NetworkManager.swift; sourceTree = "<group>"; };
 		CA25A27524AFC2870076B37B /* Tests_Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests_Type.swift; sourceTree = "<group>"; };
+		CA54415E24B325E800982C6E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CA54416024B325E800982C6E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCancelledView.swift; sourceTree = "<group>"; };
 		CAC53F4724AF521600EF2D54 /* TrainTrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackApp.swift; sourceTree = "<group>"; };
 		CAC53F4924AF521800EF2D54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,6 +276,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CA23ED7924B4F1B500C5CE87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA23ED7E24B4F1B500C5CE87 /* SwiftUI.framework in Frameworks */,
+				CA23ED7D24B4F1B500C5CE87 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA25A25E24AFC20B0076B37B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,6 +323,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA23ED7F24B4F1B500C5CE87 /* TrainTrackWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CA23ED8024B4F1B500C5CE87 /* TrainTrackWidget.swift */,
+				CA23ED8224B4F1BB00C5CE87 /* Assets.xcassets */,
+				CA23ED8424B4F1BB00C5CE87 /* Info.plist */,
+			);
+			path = TrainTrackWidget;
+			sourceTree = "<group>";
+		};
 		CA25A1F224AF52C80076B37B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +428,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		CA54415D24B325E800982C6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA54415E24B325E800982C6E /* WidgetKit.framework */,
+				CA54416024B325E800982C6E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CAC53F4124AF521500EF2D54 = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +446,8 @@
 				CAC53F6124AF521800EF2D54 /* Tests iOS */,
 				CAC53F6C24AF521800EF2D54 /* Tests macOS */,
 				CA25A26224AFC20B0076B37B /* Tests Shared */,
+				CA23ED7F24B4F1B500C5CE87 /* TrainTrackWidget */,
+				CA54415D24B325E800982C6E /* Frameworks */,
 				CAC53F4F24AF521800EF2D54 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -388,6 +473,7 @@
 				CAC53F5E24AF521800EF2D54 /* Tests iOS.xctest */,
 				CAC53F6924AF521800EF2D54 /* Tests macOS.xctest */,
 				CA25A26124AFC20B0076B37B /* Tests Shared.xctest */,
+				CA23ED7C24B4F1B500C5CE87 /* TrainTrackWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -431,6 +517,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CA23ED7B24B4F1B500C5CE87 /* TrainTrackWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA23ED8824B4F1BB00C5CE87 /* Build configuration list for PBXNativeTarget "TrainTrackWidgetExtension" */;
+			buildPhases = (
+				CA23ED7824B4F1B500C5CE87 /* Sources */,
+				CA23ED7924B4F1B500C5CE87 /* Frameworks */,
+				CA23ED7A24B4F1B500C5CE87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrainTrackWidgetExtension;
+			productName = TrainTrackWidgetExtension;
+			productReference = CA23ED7C24B4F1B500C5CE87 /* TrainTrackWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CA25A26024AFC20B0076B37B /* Tests Shared */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA25A26824AFC20B0076B37B /* Build configuration list for PBXNativeTarget "Tests Shared" */;
@@ -456,10 +559,12 @@
 				CAC53F4A24AF521800EF2D54 /* Sources */,
 				CAC53F4B24AF521800EF2D54 /* Frameworks */,
 				CAC53F4C24AF521800EF2D54 /* Resources */,
+				CA54417124B325EC00982C6E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CA23ED8624B4F1BB00C5CE87 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			productName = iOS;
@@ -528,6 +633,9 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					CA23ED7B24B4F1B500C5CE87 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					CA25A26024AFC20B0076B37B = {
 						CreatedOnToolsVersion = 12.0;
 						TestTargetID = CAC53F4D24AF521800EF2D54;
@@ -566,11 +674,21 @@
 				CAC53F5D24AF521800EF2D54 /* Tests iOS */,
 				CAC53F6824AF521800EF2D54 /* Tests macOS */,
 				CA25A26024AFC20B0076B37B /* Tests Shared */,
+				CA23ED7B24B4F1B500C5CE87 /* TrainTrackWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CA23ED7A24B4F1B500C5CE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAE6C21424B718C400524C9B /* Assets.xcassets in Resources */,
+				CA23ED8324B4F1BB00C5CE87 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA25A25F24AFC20B0076B37B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -600,6 +718,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE6C21524B718C800524C9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,12 +726,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE6C21624B718C900524C9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CA23ED7824B4F1B500C5CE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAA787D124B4F2C700377A11 /* JSONDecoderProtocol.swift in Sources */,
+				CAA787C324B4F29700377A11 /* ServiceView.swift in Sources */,
+				CAA787CD24B4F2B200377A11 /* NetworkError.swift in Sources */,
+				CAA787CB24B4F2A400377A11 /* AlertItem.swift in Sources */,
+				CAA787C824B4F2A400377A11 /* Station.swift in Sources */,
+				CAE47B6124B5DDD3001292F1 /* ServicesForStationView.swift in Sources */,
+				CAA787D024B4F2B200377A11 /* URLRequest+transportapi.swift in Sources */,
+				CAA787CF24B4F2B200377A11 /* NetworkManager.swift in Sources */,
+				CAA787C224B4F29700377A11 /* ServiceDestinationView.swift in Sources */,
+				CAA787C624B4F2A400377A11 /* Status.swift in Sources */,
+				CAA787C124B4F29700377A11 /* ServiceDurationView.swift in Sources */,
+				CAA787C524B4F2A400377A11 /* Service+SwiftUI.swift in Sources */,
+				CAA787CC24B4F2B200377A11 /* Type.swift in Sources */,
+				CAA787C724B4F2A400377A11 /* Services.swift in Sources */,
+				CA23ED8124B4F1B500C5CE87 /* TrainTrackWidget.swift in Sources */,
+				CAA787CA24B4F2A400377A11 /* Service.swift in Sources */,
+				CAA787D224B4F2C700377A11 /* RequestServiceProtocol.swift in Sources */,
+				CAA787C424B4F29700377A11 /* ServiceCancelledView.swift in Sources */,
+				CAA787CE24B4F2B200377A11 /* RequestService.swift in Sources */,
+				CAA787D324B4F2C700377A11 /* NetworkManagerProtocol.swift in Sources */,
+				CAA787C924B4F2A400377A11 /* Status+SwiftUI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA25A25D24AFC20B0076B37B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -780,6 +928,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CA23ED8624B4F1BB00C5CE87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA23ED7B24B4F1B500C5CE87 /* TrainTrackWidgetExtension */;
+			targetProxy = CA23ED8524B4F1BB00C5CE87 /* PBXContainerItemProxy */;
+		};
 		CA25A26724AFC20B0076B37B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CAC53F4D24AF521800EF2D54 /* iOS */;
@@ -798,6 +951,51 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CA23ED8924B4F1BB00C5CE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 962R5W99CR;
+				INFOPLIST_FILE = TrainTrackWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArchieEdwards.TrainTrack.TrainTrackWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA23ED8A24B4F1BB00C5CE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 962R5W99CR;
+				INFOPLIST_FILE = TrainTrackWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArchieEdwards.TrainTrack.TrainTrackWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		CA25A26924AFC20B0076B37B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -894,6 +1092,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -947,6 +1147,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -957,6 +1159,7 @@
 		CAC53F7924AF521800EF2D54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -979,6 +1182,7 @@
 		CAC53F7A24AF521800EF2D54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1139,6 +1343,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CA23ED8824B4F1BB00C5CE87 /* Build configuration list for PBXNativeTarget "TrainTrackWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA23ED8924B4F1BB00C5CE87 /* Debug */,
+				CA23ED8A24B4F1BB00C5CE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CA25A26824AFC20B0076B37B /* Build configuration list for PBXNativeTarget "Tests Shared" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

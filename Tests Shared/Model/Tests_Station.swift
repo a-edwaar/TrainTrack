@@ -93,4 +93,50 @@ class Tests_Station : XCTestCase{
         }
     }
     
+    func testGetServices_Departures() throws {
+        /// initialise station
+        let station = Station(id: "BHM", name: "Birmingham", departures: Services(all: [Service(id: "newService", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: nil)]), arrivals: nil)
+        
+        /// call get services
+        let services = station.getServices(type: .departure)
+        
+        /// assert value
+        XCTAssertEqual(services.all.count, 1)
+        XCTAssertEqual(services.all[0].id, "newService")
+    }
+    
+    func testGetServices_Departures_Nil() throws {
+        /// initialise station
+        let station = Station(id: "BHM", name: "Birmingham", departures: nil, arrivals: nil)
+        
+        /// call get services
+        let services = station.getServices(type: .departure)
+        
+        /// assert value
+        XCTAssertEqual(services.all.count, 0)
+    }
+    
+    func testGetServices_Arrivals() throws {
+        /// initialise station
+        let station = Station(id: "BHM", name: "Birmingham", departures: nil, arrivals: Services(all: [Service(id: "newService", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: nil)]))
+        
+        /// call get services
+        let services = station.getServices(type: .arrival)
+        
+        /// assert value
+        XCTAssertEqual(services.all.count, 1)
+        XCTAssertEqual(services.all[0].id, "newService")
+    }
+    
+    func testGetServices_Arrivals_Nil() throws {
+        /// initialise station
+        let station = Station(id: "BHM", name: "Birmingham", departures: nil, arrivals: nil)
+        
+        /// call get services
+        let services = station.getServices(type: .arrival)
+        
+        /// assert value
+        XCTAssertEqual(services.all.count, 0)
+    }
+    
 }

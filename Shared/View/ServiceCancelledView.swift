@@ -10,9 +10,8 @@ import SwiftUI
 struct ServiceCancelledView: View {
     var body: some View {
         Text("Cancelled")
-            .font(.largeTitle)
+            .font(.headline)
             .foregroundColor(.red)
-            .bold()
     }
 }
 

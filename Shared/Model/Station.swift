@@ -27,4 +27,12 @@ public struct Station: Identifiable, Codable{
             arrivals = services
         }
     }
+    
+    func getServices(type: Type = .departure) -> Services{
+        if type == .departure {
+            return departures ?? Services(all: [])
+        }else{
+            return arrivals ?? Services(all: [])
+        }
+    }
 }
