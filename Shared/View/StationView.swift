@@ -15,10 +15,10 @@ struct StationView: View {
     
     var body: some View {
         VStack{
-            if stationModel.station == nil {
+            if stationModel.services == nil {
                 StationLoadingView(stationID: stationID)
             }else{
-                ServicesForStationView(station: stationName, type: stationModel.type, services: self.stationModel.station?.getServices(type: self.stationModel.type).all ?? [])
+                ServicesForStationView(station: stationName, services: self.stationModel.services!)
             }
         }.onAppear {
             stationModel.getLatest(stationID)

@@ -6,52 +6,145 @@
 //
 
 import Foundation
+import SWXMLHash
 
 public struct RequestService {
     
     private let r : RequestServiceProtocol
-    private let j : JSONDecoderProtocol
+    private let d : () -> Date
     
-    init(r: RequestServiceProtocol = NetworkManager(), j: JSONDecoderProtocol = JSONDecoder()) {
+    init(r: RequestServiceProtocol = NetworkManager(), d: @escaping () -> Date = Date.init) {
         self.r = r
-        self.j = j
+        self.d = d
     }
     
-    public func getStationUpdate(station: String, type: Type = .departure, completion: @escaping (Result<Station, Error>) -> Void) {
+    public func getStationUpdate(station: String, type: Type = .departure, completion: @escaping (Result<[Service], Error>) -> Void) {
         r.getStationUpdate(station: station, type: type) { result in
             switch result {
             case .success(let data):
-                do {
-                    let stationStatus = try j.decode(Station.self, from: data)
-                    completion(.success(sortByExpectedMins(station: stationStatus, type: type)))
-                } catch {
-                    completion(.failure(error))
+                
+                /// parse xml response
+                let xml = SWXMLHash.config{ config in
+                    config.shouldProcessNamespaces = true
+                }.parse(data)
+                
+                let xmlServices = type == .departure ? xml["Envelope"]["Body"]["GetDepartureBoardResponse"]["GetStationBoardResult"]["trainServices"]["service"].all : xml["Envelope"]["Body"]["GetArrivalBoardResponse"]["GetStationBoardResult"]["trainServices"]["service"].all
+                
+                /// loop through services returned
+                var services : [Service] = []
+                for service in xmlServices {
+                    
+                    /// id
+                    guard let serviceId = service["serviceID"].element?.text else{
+                        continue /// dont include service as always should have id
+                    }
+                    
+                    /// scheduled time
+                    guard let scheduledTime = cleanTime(type == .departure ? service["std"].element?.text : service["sta"].element?.text) else{
+                        continue //// dont include service as should have a scheduled time
+                    }
+                    
+                    /// platform
+                    let platform = service["platform"].element?.text
+                    
+                    /// destination or origin
+                    let targetStation = type == .departure ? (service["destination"]["location"][0]["locationName"].element?.text) ?? "Unknown" : (service["origin"]["location"][0]["locationName"].element?.text) ?? "Unknown"
+                    
+                    var status : Status
+                    var expMins : Int
+                    if service["isCancelled"].element?.text == "true" || service["cancelReason"].element?.text != nil || service["filterLocationCancelled"].element?.text == "true" {
+                        status = .cancelled
+                        expMins = 120 /// this doesnt matter as it won't be shown
+                    }else{
+                        let estimatedTime = cleanTime(type == .departure ? service["etd"].element?.text : service["eta"].element?.text)
+                        if estimatedTime == nil {
+                            status = .onTime
+                            expMins = calculateExpMins(scheduledTime)
+                        }else{
+                            status = calculateStatus(scheduledTime: scheduledTime, estimatedTime: estimatedTime!)
+                            switch estimatedTime{
+                            case "On time", "Cancelled", "Delayed", "No report":
+                                expMins = calculateExpMins(scheduledTime) /// estimated value is a string rather than time so use scheduled time
+                            default:
+                                expMins = calculateExpMins(estimatedTime!)
+                            }
+                        }
+                    }
+                    
+                    /// add service info to services array
+                    services.append(contentsOf: [Service(id: serviceId, platform: platform, station: targetStation, status: status, scheduledTime: scheduledTime, expMins: expMins)])
                 }
+                completion(.success(services))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
     
-    private func sortByExpectedMins(station: Station, type: Type) -> Station{
-        guard var services = type == .departure ? station.departures?.all : station.arrivals?.all else{
-            return station
+    private func calculateStatus(scheduledTime: String, estimatedTime: String) -> Status{
+        switch estimatedTime{
+        case "On time":
+            return .onTime
+        case "Cancelled":
+            return .cancelled
+        case "Delayed":
+            return .late
+        case "No report":
+            return .other
+        default:
+            let expScheduledTime = calculateExpMins(scheduledTime)
+            let expEstimatedTime = calculateExpMins(estimatedTime)
+            if expEstimatedTime > expScheduledTime{
+                return .late
+            }else if expEstimatedTime < expScheduledTime{
+                return .early
+            }else{
+                return .onTime
+            }
         }
-        services.sort(by: { (comparingService, currentService) in
-            let expMinsComparingService = type == .departure ? comparingService.expDepartureMins : comparingService.expArrivalMins
-            let expMinsCurrentService = type == .departure ? currentService.expDepartureMins : currentService.expArrivalMins
-            if expMinsComparingService == nil{
-                return false
-            }else if expMinsCurrentService == nil {
-                /// no time estimate needs to go to back of list
-                return true
-            }else if expMinsComparingService! < expMinsCurrentService! {
+    }
+    
+    private func calculateExpMins(_ estimate: String) -> Int {
+        /// format into date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        guard let comparedDate = dateFormatter.date(from: estimate) else{
+            return 120
+        }
+
+        /// calculate diff from current date
+        let calendar = Calendar.current
+        let currentDate = d()
+        let compareComponents = calendar.dateComponents([.hour, .minute], from: comparedDate)
+        let currentComponents = calendar.dateComponents([.hour, .minute], from: currentDate)
+        guard let difference = calendar.dateComponents([.minute], from: currentComponents, to: compareComponents).minute else{
+            return 120
+        }
+        return difference
+    }
+    
+    /// TODO wont sort for now but if implement minimal view we will
+    private func sortByExpectedMins(_ services: [Service]) -> [Service]{
+        var sortedServices = services
+        sortedServices.sort(by: { (comparingService, currentService) in
+            if comparingService.expMins < currentService.expMins {
                 return true
             }
             return false
         })
-        var newSortedStation = station
-        newSortedStation.setServices(Services(all: services), type: type)
-        return newSortedStation
+        return sortedServices
+    }
+    
+    private func cleanTime(_ time: String?) -> String?{
+        if time == nil{
+            return time
+        }
+        var tmp = time!
+        if tmp.contains("*") {
+            tmp.removeAll(where: { char in
+                char == "*"
+            })
+        }
+        return tmp
     }
 }

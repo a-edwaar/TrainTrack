@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ServiceDestinationView: View {
-    var destination: String?
+    var scheduledTime: String
+    var destination: String
     var platform: String?
     var body: some View {
         HStack{
-            Text(destination ?? "Unknown")
+            Text(scheduledTime)
+                .font(.headline)
+            Text(destination)
                 .font(.headline)
             Spacer()
             if platform != nil{
@@ -28,6 +31,6 @@ struct ServiceDestinationView: View {
 
 struct ServiceDestinationView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDestinationView(destination: "Birmingham", platform: "1b")
+        ServiceDestinationView(scheduledTime: "14:44",destination: "Birmingham", platform: "1b")
     }
 }

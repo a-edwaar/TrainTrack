@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <GetDepartureBoardResponse xmlns="http://thalesgroup.com/RTTI/2017-10-01/ldb/">
+            <GetStationBoardResult xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt6="http://thalesgroup.com/RTTI/2017-02-02/ldb/types" xmlns:lt7="http://thalesgroup.com/RTTI/2017-10-01/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types" xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types">
+                <lt4:generatedAt>2020-07-13T12:56:18.103101+01:00</lt4:generatedAt>
+                <lt4:locationName>Birmingham New Street</lt4:locationName>
+                <lt4:crs>BHM</lt4:crs>
+                <lt4:nrccMessages>
+                    <lt:message>Temporary changes to ticket office opening hours at Birmingham New Street station during Coronavirus: Weekday 05:15-21:00, Saturday 05:15-21:00, Sunday 08:00-21:00. There may also be fewer staff. Assistance and information is available from staff whilst trains are running.</lt:message>
+                    <lt:message>Disruption between Watford Junction and London Euston / Clapham Junction due to overhead electric wire damage. More details can be found in &lt;A href="http://nationalrail.co.uk/service_disruptions/252023.aspx "&gt;Latest Travel News&lt;/A&gt;.</lt:message>
+                </lt4:nrccMessages>
+                <lt4:platformAvailable>true</lt4:platformAvailable>
+                <lt7:trainServices>
+                    <lt7:service>
+                        <lt4:etd>12:55</lt4:etd>
+                        <lt4:platform>2A</lt4:platform>
+                        <lt4:operator>Transport for Wales</lt4:operator>
+                        <lt4:operatorCode>AW</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>MKT1ixLPjLFU+YRIrPllEA==</lt4:serviceID>
+                        <lt5:rsid>AW301101</lt5:rsid>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Shrewsbury</lt4:locationName>
+                                <lt4:crs>SHR</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Birmingham International</lt4:locationName>
+                                <lt4:crs>BHI</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt7:service>
+                    <lt7:service>
+                        <lt4:std>12:55</lt4:std>
+                        <lt4:etd>On time</lt4:etd>
+                        <lt4:platform>8</lt4:platform>
+                        <lt4:operator>West Midlands Trains</lt4:operator>
+                        <lt4:operatorCode>LM</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:length>6</lt4:length>
+                        <lt5:rsid>LM318800</lt5:rsid>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Bromsgrove</lt4:locationName>
+                                <lt4:crs>BMV</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Lichfield Trent Valley</lt4:locationName>
+                                <lt4:crs>LTV</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt7:service>
+                </lt7:trainServices>
+            </GetStationBoardResult>
+        </GetDepartureBoardResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -12,6 +12,8 @@ extension Status {
         switch self {
         case .cancelled, .late:
             return Color.red
+        case .other:
+            return Color.orange
         default:
             return Color.green
         }
