@@ -5,9 +5,41 @@
 //  Created by Archie Edwards on 30/06/2020.
 //
 
+import Foundation
 import XCTest
 
 class Tests_RequestService : XCTestCase{
+    
+    enum TestRequestServiceError: Error {
+        
+        case notFound
+        case failedToConvert
+        
+        public var errorDescription: String? {
+            switch self {
+            case .notFound:
+                return NSLocalizedString("Test failed to find file", comment: "Not found")
+            default:
+                return NSLocalizedString("Test failed to convert xml to data", comment: "Failed to convert")
+            }
+        }
+    }
+    
+    func loadXmlHelper(file: String) -> Result<Data,Error>{
+        let bundle = Bundle(for: Tests_RequestService.self)
+        guard let stationFileURL = bundle.url(forResource: file, withExtension: "xml") else {
+            return .failure(TestRequestServiceError.notFound)
+        }
+        guard let stationData = try? Data(contentsOf: stationFileURL) else {
+            return .failure(TestRequestServiceError.failedToConvert)
+        }
+        return .success(stationData)
+    }
+    
+    override func setUpWithError() throws {
+        /// want to stop execution if we fail to load xml file
+        continueAfterFailure = false
+    }
     
     func testGetStationUpdate_failure() throws {
         
@@ -19,7 +51,7 @@ class Tests_RequestService : XCTestCase{
         }
         
         /// inject mock and execute request
-        var requestResultOptional : Result<Station, Error>?
+        var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock())
         client.getStationUpdate(station: "BHM"){ result in
             requestResultOptional = result
@@ -37,160 +69,582 @@ class Tests_RequestService : XCTestCase{
         }
     }
     
-    func testGetStationUpdate_success_decodeError() throws {
-        
+    func testGetStationUpdate_success_badData() throws {
+
         /// create mock to return success from NetworkManager
         class RequestMock : RequestServiceProtocol{
             func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(Data("Hello World".utf8)))
             }
         }
-        
-        /// create mock to return error from json decoder
-        class JSONMock : JSONDecoderProtocol{
-            func decode(_ type: Station.Type, from data: Data) throws -> Station {
-                throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: "Bang!"))
-            }
-        }
-        
-        /// inject mocks
-        var requestResultOptional : Result<Station, Error>?
-        let client = RequestService(r: RequestMock(), j: JSONMock())
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock())
         client.getStationUpdate(station: "BHM"){ result in
             requestResultOptional = result
         }
-        
+
         /// assert
         guard let requestResult = requestResultOptional else {
             return XCTFail("RequestService result is nil")
         }
         switch requestResult{
-        case .success(let station):
-            XCTFail("RequestService was meant to return failure but was success with station: \(station)")
-        case .failure(let error):
-            XCTAssertEqual(error.localizedDescription, "The data couldn’t be read because it isn’t in the correct format.")
-        }
-        
-    }
-    
-    func testGetStationUpdate_success() throws {
-        
-        /// create mock to return success from NetworkManager
-        class RequestMock : RequestServiceProtocol{
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
-                completion(.success(Data("Hello World".utf8)))
-            }
-        }
-        
-        /// create mock to return success from json decoder
-        class JSONMock : JSONDecoderProtocol{
-            func decode(_ type: Station.Type, from data: Data) throws -> Station {
-                return Station(id: "BHM", name: nil, departures: nil, arrivals: nil)
-            }
-        }
-        
-        /// inject mocks
-        var requestResultOptional : Result<Station, Error>?
-        let client = RequestService(r: RequestMock(), j: JSONMock())
-        client.getStationUpdate(station: "BHM"){ result in
-            requestResultOptional = result
-        }
-        
-        /// assert
-        guard let requestResult = requestResultOptional else {
-            return XCTFail("RequestService result is nil")
-        }
-        switch requestResult{
-        case .success(let station):
-            XCTAssertEqual(station.id, "BHM")
+        case .success(let services):
+            XCTAssertEqual(services.count, 0)
         case .failure(let error):
             XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
         }
-        
+
     }
     
-    func testGetStationUpdate_successAndSorted_Departures() throws {
+    func testGetStationUpdate_success_noServices() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_noServices")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
         
         /// create mock to return success from NetworkManager
         class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
             func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
-                completion(.success(Data("Hello World".utf8)))
+                completion(.success(stationData))
             }
         }
-        
-        /// create mock to return success from json decoder
-        class JSONMock : JSONDecoderProtocol{
-            
-            let unsortedServices = Services(all: [Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 5, expArrivalMins: nil), Service(id: "2", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: nil), Service(id: "3", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 2, expArrivalMins: nil), Service(id: "4", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 1, expArrivalMins: nil)])
-            
-            func decode(_ type: Station.Type, from data: Data) throws -> Station {
-                return Station(id: "BHM", name: nil, departures: unsortedServices, arrivals: nil)
-            }
-        }
-        
-        /// inject mocks
-        var requestResultOptional : Result<Station, Error>?
-        let client = RequestService(r: RequestMock(), j: JSONMock())
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
         client.getStationUpdate(station: "BHM"){ result in
             requestResultOptional = result
         }
-        
+
         /// assert
         guard let requestResult = requestResultOptional else {
             return XCTFail("RequestService result is nil")
         }
         switch requestResult{
-        case .success(let station):
-            XCTAssertEqual(station.departures?.all[0].id, "4")
-            XCTAssertEqual(station.departures?.all[1].id, "3")
-            XCTAssertEqual(station.departures?.all[2].id, "1")
-            XCTAssertEqual(station.departures?.all[3].id, "2")
+        case .success(let services):
+            XCTAssertEqual(services.count, 0)
         case .failure(let error):
             XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
         }
-        
+
     }
     
-    func testGetStationUpdate_successAndSorted_Arrivals() throws {
+    func testGetStationUpdate_success_noIDorScheduledTime() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_noIDorScheduledTime")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
         
         /// create mock to return success from NetworkManager
         class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
             func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
-                completion(.success(Data("Hello World".utf8)))
+                completion(.success(stationData))
             }
         }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
+        client.getStationUpdate(station: "BHM"){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services.count, 0)
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_ID() throws {
         
-        /// create mock to return success from json decoder
-        class JSONMock : JSONDecoderProtocol{
-            
-            let unsortedServices = Services(all: [Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: 5), Service(id: "2", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: nil), Service(id: "3", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: 2), Service(id: "4", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: 1)])
-            
-            func decode(_ type: Station.Type, from data: Data) throws -> Station {
-                return Station(id: "BHM", name: nil, departures: nil, arrivals: unsortedServices)
-            }
+        let loadXmlResult = loadXmlHelper(file: "RequestService_departures")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
         }
         
-        /// inject mocks
-        var requestResultOptional : Result<Station, Error>?
-        let client = RequestService(r: RequestMock(), j: JSONMock())
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
+        client.getStationUpdate(station: "BHM"){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].id, "o25NR2kZIrOJqTMuX9cChQ==")
+            XCTAssertEqual(services[1].id, "LpaunDe7uA5t9QYBsKvnew==")
+            XCTAssertEqual(services[2].id, "fYrw6VlobXqDCYva/3XokA==")
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_scheduledTime_departure() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_departures")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
+        client.getStationUpdate(station: "BHM"){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].scheduledTime, "14:15")
+            XCTAssertEqual(services[1].scheduledTime, "14:27")
+            XCTAssertEqual(services[2].scheduledTime, "14:35")
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_scheduledTime_arrival() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_arrivals")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
         client.getStationUpdate(station: "BHM", type: .arrival){ result in
             requestResultOptional = result
         }
-        
+
         /// assert
         guard let requestResult = requestResultOptional else {
             return XCTFail("RequestService result is nil")
         }
         switch requestResult{
-        case .success(let station):
-            XCTAssertEqual(station.arrivals?.all[0].id, "4")
-            XCTAssertEqual(station.arrivals?.all[1].id, "3")
-            XCTAssertEqual(station.arrivals?.all[2].id, "1")
-            XCTAssertEqual(station.arrivals?.all[3].id, "2")
+        case .success(let services):
+            XCTAssertEqual(services[0].scheduledTime, "14:46")
+            XCTAssertEqual(services[1].scheduledTime, "14:51")
+            XCTAssertEqual(services[2].scheduledTime, "14:54")
         case .failure(let error):
             XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
         }
-        
+
     }
     
+    func testGetStationUpdate_success_platform() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_departures")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
+        client.getStationUpdate(station: "BHM"){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].platform, nil)
+            XCTAssertEqual(services[1].platform, nil)
+            XCTAssertEqual(services[2].platform, "8")
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_station_departure() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_departures")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
+        client.getStationUpdate(station: "BHM"){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].station, "Four Oaks")
+            XCTAssertEqual(services[1].station, "Walsall")
+            XCTAssertEqual(services[2].station, "Unknown")
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_station_arrival() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_arrivals")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
+        client.getStationUpdate(station: "BHM", type: .arrival){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].station, "London Euston")
+            XCTAssertEqual(services[1].station, "Crewe")
+            XCTAssertEqual(services[2].station, "Unknown")
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_cancelled() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_cancelled")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+
+        /// inject mock
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!))
+        client.getStationUpdate(station: "BHM"){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].status, .cancelled)
+            XCTAssertEqual(services[0].expMins, 120)
+            XCTAssertEqual(services[1].status, .cancelled)
+            XCTAssertEqual(services[1].expMins, 120)
+            XCTAssertEqual(services[2].status, .cancelled)
+            XCTAssertEqual(services[2].expMins, 120)
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_estimatedTime_departure() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_departures")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+        
+        /// mock current date
+        class DateMock {
+            static func generateDate() -> Date {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm"
+                guard let date = dateFormatter.date(from: "14:10") else{
+                    return Date()
+                }
+                return date
+            }
+        }
+
+        /// inject mocks
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!), d: DateMock.generateDate)
+        client.getStationUpdate(station: "BHM"){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].status, .onTime) /// no etd
+            XCTAssertEqual(services[0].expMins, 5)
+            XCTAssertEqual(services[1].status, .early) /// early etd
+            XCTAssertEqual(services[1].expMins, 10)
+            XCTAssertEqual(services[2].status, .onTime) /// etd is a status rather than time
+            XCTAssertEqual(services[2].expMins, 25)
+            XCTAssertEqual(services[3].status, .late) /// etd is delayed and scheduled is in past  -> would be "due" in the view
+            XCTAssertEqual(services[3].expMins, -2)
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
+    
+    func testGetStationUpdate_success_estimatedTime_arrival() throws {
+        
+        let loadXmlResult = loadXmlHelper(file: "RequestService_arrivals")
+        var stationData : Data?
+        switch loadXmlResult {
+        case .success(let data):
+            stationData = data
+        case .failure(let err):
+            XCTFail(err.localizedDescription)
+        }
+        
+        /// create mock to return success from NetworkManager
+        class RequestMock : RequestServiceProtocol{
+            
+            var stationData : Data
+            
+            init(_ stationData : Data) {
+                self.stationData = stationData
+            }
+            
+            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+                completion(.success(stationData))
+            }
+        }
+        
+        /// mock current date
+        class DateMock {
+            static func generateDate() -> Date {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm"
+                guard let date = dateFormatter.date(from: "14:40") else{
+                    return Date()
+                }
+                return date
+            }
+        }
+
+        /// inject mocks
+        var requestResultOptional : Result<[Service], Error>?
+        let client = RequestService(r: RequestMock(stationData!), d: DateMock.generateDate)
+        client.getStationUpdate(station: "BHM", type: .arrival){ result in
+            requestResultOptional = result
+        }
+
+        /// assert
+        guard let requestResult = requestResultOptional else {
+            return XCTFail("RequestService result is nil")
+        }
+        switch requestResult{
+        case .success(let services):
+            XCTAssertEqual(services[0].status, .onTime)
+            XCTAssertEqual(services[0].expMins, 6)
+            XCTAssertEqual(services[1].status, .late)
+            XCTAssertEqual(services[1].expMins, 12)
+            XCTAssertEqual(services[2].status, .onTime)
+            XCTAssertEqual(services[2].expMins, 14)
+            XCTAssertEqual(services[3].status, .late)
+            XCTAssertEqual(services[3].expMins, -10)
+        case .failure(let error):
+            XCTFail("RequestService was meant to return success but was failure with error: \(error.localizedDescription)")
+        }
+
+    }
 }

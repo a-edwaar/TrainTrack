@@ -10,7 +10,7 @@ import SwiftUI
 
 final class StationViewModel : ObservableObject{
     
-    @Published var station : Station?
+    @Published var services : [Service]?
     @Published var alertItem : AlertItem?
     @Published var type: Type = .departure
     
@@ -18,8 +18,8 @@ final class StationViewModel : ObservableObject{
         RequestService().getStationUpdate(station: stationName, type: type) { result in
             DispatchQueue.main.async {
                 switch result{
-                case .success(let station):
-                    self.station = station
+                case .success(let services):
+                    self.services = services
                 case .failure(let error):
                     print(error.localizedDescription) ///TODO make this a log in the future
                     self.alertItem = AlertItem(title: Text("UHOH"), message: Text("Unable to get station data"), dismissButton: .default(Text("OK")))

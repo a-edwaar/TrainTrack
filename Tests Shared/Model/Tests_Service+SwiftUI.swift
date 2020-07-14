@@ -9,44 +9,34 @@ import XCTest
 
 class Tests_Service_SwiftUI : XCTestCase{
     func testExpMinsForProgressBar() throws {
-        let service = Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 60, expArrivalMins: 30)
+        let service = Service(id: "id", platform: nil, station: "", status: .onTime, scheduledTime: "", expMins: 60)
         XCTAssertEqual(service.expMinsForProgressBar(), 0.5)
-        XCTAssertEqual(service.expMinsForProgressBar(type: .arrival), 0.75)
     }
     
-    func testExpMinsForProgressBar_nil() throws{
-        let service = Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: nil, expArrivalMins: nil)
+    func testExpMinsForProgressBar_Negative() throws {
+        let service = Service(id: "id", platform: nil, station: "", status: .onTime, scheduledTime: "", expMins: -2)
         XCTAssertEqual(service.expMinsForProgressBar(), 1)
-        XCTAssertEqual(service.expMinsForProgressBar(type: .arrival), 1)
     }
     
-    func testExpMinsForProgressBar_EdgeCases() throws {
-        let service = Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: -1, expArrivalMins: 150)
-        XCTAssertEqual(service.expMinsForProgressBar(), 1)
-        XCTAssertEqual(service.expMinsForProgressBar(type: .arrival), 0)
+    func testExpMinsForProgressBar_OverTwoHours() throws{
+        let service = Service(id: "id", platform: nil, station: "", status: .onTime, scheduledTime: "", expMins: 150)
+        XCTAssertEqual(service.expMinsForProgressBar(), 0)
     }
     
     func testExpMinsForStatus() throws{
-        let service = Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 2, expArrivalMins: 10)
+        let service = Service(id: "id", platform: nil, station: "", status: .onTime, scheduledTime: "", expMins: 2)
         XCTAssertEqual(service.expMinsForStatus(), "2 mins")
-        XCTAssertEqual(service.expMinsForStatus(type: .arrival), "10 mins")
     }
     
     func testExpMinsForStatus_Due() throws{
-        let service = Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 0, expArrivalMins: -1)
-        XCTAssertEqual(service.expMinsForStatus(), "Due")
-        XCTAssertEqual(service.expMinsForStatus(type: .arrival), "Due")
+        let service1 = Service(id: "id", platform: nil, station: "", status: .onTime, scheduledTime: "", expMins: 0)
+        let service2 = Service(id: "id", platform: nil, station: "", status: .onTime, scheduledTime: "", expMins: -1)
+        XCTAssertEqual(service1.expMinsForStatus(), "Due")
+        XCTAssertEqual(service2.expMinsForStatus(), "Due")
     }
     
     func testExpMinsForStatus_1min() throws{
-        let service = Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 1, expArrivalMins: 1)
+        let service = Service(id: "id", platform: nil, station: "", status: .onTime, scheduledTime: "", expMins: 1)
         XCTAssertEqual(service.expMinsForStatus(), "1 min")
-        XCTAssertEqual(service.expMinsForStatus(type: .arrival), "1 min")
-    }
-    
-    func testExpMinsForStatus_roundDown() throws{
-        let service = Service(id: "1", platform: nil, operatorName: nil, origin: nil, destination: nil, status: nil, aimedDepartureTime: nil, aimedArrivalTime: nil, expDepartureTime: nil, expArrivalTime: nil, expDepartureMins: 10.5, expArrivalMins: 5.7)
-        XCTAssertEqual(service.expMinsForStatus(), "10 mins")
-        XCTAssertEqual(service.expMinsForStatus(type: .arrival), "5 mins")
     }
 }

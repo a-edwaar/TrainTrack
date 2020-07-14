@@ -4,34 +4,29 @@
 //
 //  Created by Archie Edwards on 03/07/2020.
 //
+import Foundation
 
 extension Service{
-    func expMinsForProgressBar(type: Type = .departure) -> Float{
+    func expMinsForProgressBar() -> Float{
         /// need progress bar friendly value from 0 to 1
-        var expMinsData = expMins(type: type)
+        var expMinsData = expMins
         
         if expMinsData > 120 {
             expMinsData = 120
         }else if expMinsData < 0 {
             expMinsData = 0
         }
-        
-        return 1 - (expMinsData / 120)
+        return 1 - (Float(expMinsData) / 120)
     }
     
-    func expMinsForStatus(type: Type = .departure) -> String{
-        let expMinsData = Int(expMins(type: type))
-        switch expMinsData{
-        case _ where expMinsData < 1:
+    func expMinsForStatus() -> String{
+        switch expMins{
+        case _ where expMins < 1:
             return "Due"
         case 1:
-            return "\(expMinsData) min"
+            return "\(expMins) min"
         default:
-            return "\(expMinsData) mins"
+            return "\(expMins) mins"
         }
-    }
-    
-    private func expMins(type: Type = .departure) -> Float{
-        return type == .departure ? (self.expDepartureMins ?? 0) : (self.expArrivalMins ?? 0)
     }
 }

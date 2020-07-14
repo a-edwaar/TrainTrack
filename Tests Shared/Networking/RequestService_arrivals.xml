@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <GetArrivalBoardResponse xmlns="http://thalesgroup.com/RTTI/2017-10-01/ldb/">
+            <GetStationBoardResult xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt6="http://thalesgroup.com/RTTI/2017-02-02/ldb/types" xmlns:lt7="http://thalesgroup.com/RTTI/2017-10-01/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types" xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types">
+                <lt4:generatedAt>2020-07-13T14:52:48.4243368+01:00</lt4:generatedAt>
+                <lt4:locationName>Birmingham New Street</lt4:locationName>
+                <lt4:crs>BHM</lt4:crs>
+                <lt4:nrccMessages>
+                    <lt:message>Temporary changes to ticket office opening hours at Birmingham New Street station during Coronavirus: Weekday 05:15-21:00, Saturday 05:15-21:00, Sunday 08:00-21:00. There may also be fewer staff. Assistance and information is available from staff whilst trains are running.</lt:message>
+                    <lt:message>Disruption between Watford Junction and London Euston / Clapham Junction due to overhead electric wire damage earlier today. More details can be found in &lt;A href="http://nationalrail.co.uk/service_disruptions/252023.aspx"&gt;Latest Travel News&lt;/A&gt;.</lt:message>
+                </lt4:nrccMessages>
+                <lt4:platformAvailable>true</lt4:platformAvailable>
+                <lt7:trainServices>
+                    <lt7:service>
+                        <lt4:sta>14:46*</lt4:sta>
+                        <lt4:platform>4</lt4:platform>
+                        <lt4:operator>Avanti West Coast</lt4:operator>
+                        <lt4:operatorCode>VT</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:serviceID>C3kk/1pIFIk4E9WYPDDcxw==</lt4:serviceID>
+                        <lt5:rsid>VT522400</lt5:rsid>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>London Euston</lt4:locationName>
+                                <lt4:crs>EUS</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Birmingham New Street</lt4:locationName>
+                                <lt4:crs>BHM</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt7:service>
+                    <lt7:service>
+                        <lt4:sta>14:51</lt4:sta>
+                        <lt4:eta>14:52</lt4:eta>
+                        <lt4:platform>7</lt4:platform>
+                        <lt4:operator>West Midlands Trains</lt4:operator>
+                        <lt4:operatorCode>LM</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:length>4</lt4:length>
+                        <lt4:serviceID>GPZwzCPQzbtXrhBZU4hpUQ==</lt4:serviceID>
+                        <lt5:rsid>LM306400</lt5:rsid>
+                        <lt5:origin>
+                            <lt4:location>
+                                <lt4:locationName>Crewe</lt4:locationName>
+                                <lt4:crs>CRE</lt4:crs>
+                            </lt4:location>
+                            <lt4:location>
+                                <lt4:locationName>Cardiff Central</lt4:locationName>
+                                <lt4:crs>CAR</lt4:crs>
+                            </lt4:location>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Birmingham New Street</lt4:locationName>
+                                <lt4:crs>BHM</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt7:service>
+                    <lt7:service>
+                        <lt4:sta>14:54</lt4:sta>
+                        <lt4:eta>On time</lt4:eta>
+                        <lt4:platform>4C</lt4:platform>
+                        <lt4:operator>West Midlands Trains</lt4:operator>
+                        <lt4:operatorCode>LM</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:length>4</lt4:length>
+                        <lt4:serviceID>Wop15sFuzeutWJjt3f95Yg==</lt4:serviceID>
+                        <lt5:origin>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Birmingham New Street</lt4:locationName>
+                                <lt4:crs>BHM</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt7:service>
+                    <lt7:service>
+                        <lt4:sta>14:30</lt4:sta>
+                        <lt4:eta>Delayed</lt4:eta>
+                        <lt4:platform>4C</lt4:platform>
+                        <lt4:operator>West Midlands Trains</lt4:operator>
+                        <lt4:operatorCode>LM</lt4:operatorCode>
+                        <lt4:serviceType>train</lt4:serviceType>
+                        <lt4:length>4</lt4:length>
+                        <lt4:serviceID>Wop15sFuzeutWJjt3f95Yg==</lt4:serviceID>
+                        <lt5:origin>
+                        </lt5:origin>
+                        <lt5:destination>
+                            <lt4:location>
+                                <lt4:locationName>Birmingham New Street</lt4:locationName>
+                                <lt4:crs>BHM</lt4:crs>
+                            </lt4:location>
+                        </lt5:destination>
+                    </lt7:service>
+                </lt7:trainServices>
+            </GetStationBoardResult>
+        </GetArrivalBoardResponse>
+    </soap:Body>
+</soap:Envelope>
