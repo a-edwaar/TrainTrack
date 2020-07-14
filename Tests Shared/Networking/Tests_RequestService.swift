@@ -45,7 +45,7 @@ class Tests_RequestService : XCTestCase{
         
         /// create mock to return failure
         class RequestMock : RequestServiceProtocol{
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.failure(NetworkError.noData))
             }
         }
@@ -53,7 +53,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock and execute request
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock())
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
         
@@ -73,7 +73,7 @@ class Tests_RequestService : XCTestCase{
 
         /// create mock to return success from NetworkManager
         class RequestMock : RequestServiceProtocol{
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(Data("Hello World".utf8)))
             }
         }
@@ -81,7 +81,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock())
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -118,7 +118,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -126,7 +126,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -163,7 +163,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -171,7 +171,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -208,7 +208,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -216,7 +216,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -255,7 +255,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -263,7 +263,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -302,7 +302,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -310,7 +310,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM", type: .arrival){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .arrival)){ result in
             requestResultOptional = result
         }
 
@@ -349,7 +349,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -357,7 +357,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -396,7 +396,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -404,7 +404,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -443,7 +443,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -451,7 +451,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM", type: .arrival){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .arrival)){ result in
             requestResultOptional = result
         }
 
@@ -490,7 +490,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -498,7 +498,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mock
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!))
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -540,7 +540,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -560,7 +560,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mocks
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!), d: DateMock.generateDate)
-        client.getStationUpdate(station: "BHM"){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .departure)){ result in
             requestResultOptional = result
         }
 
@@ -604,7 +604,7 @@ class Tests_RequestService : XCTestCase{
                 self.stationData = stationData
             }
             
-            func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
+            func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
                 completion(.success(stationData))
             }
         }
@@ -624,7 +624,7 @@ class Tests_RequestService : XCTestCase{
         /// inject mocks
         var requestResultOptional : Result<[Service], Error>?
         let client = RequestService(r: RequestMock(stationData!), d: DateMock.generateDate)
-        client.getStationUpdate(station: "BHM", type: .arrival){ result in
+        client.getStationUpdate(StationRequest(station: nil, filterStation: nil, type: .arrival)){ result in
             requestResultOptional = result
         }
 

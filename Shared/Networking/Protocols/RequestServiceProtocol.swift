@@ -8,12 +8,12 @@
 import Foundation
 
 protocol RequestServiceProtocol {
-    func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void)
+    func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
 extension NetworkManager : RequestServiceProtocol {
-    func getStationUpdate(station: String, type: Type, completion: @escaping (Result<Data, Error>) -> Void) {
-        executeRequest(request: URLRequest.station(station: station, type: type)){ result in
+    func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<Data, Error>) -> Void) {
+        executeRequest(request: stationReq.getURL()){ result in
             completion(result)
         }
     }

@@ -12,9 +12,9 @@ extension URLRequest{
     private static var baseURL: String { "https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb11.asmx" }
     private static var appToken : String { "fb13b19b-f39e-47d6-88a7-75d4156a6acb" }
     
-    public static func station(station: String, type : Type = .departure) -> URLRequest {
-        let parameters = ["numRows": "150", "crs": station, "filterCrs": ""]
-        return formSoapRequest(type == .departure ? "GetDepartureBoardRequest" : "GetArrivalBoardRequest", parameters: parameters)
+    public static func station(stationReq: StationRequest) -> URLRequest {
+        let parameters = ["numRows": "150", "crs": stationReq.station?.id ?? "", "filterCrs": stationReq.filterStation?.id ?? ""]
+        return formSoapRequest(stationReq.type == .departure ? "GetDepartureBoardRequest" : "GetArrivalBoardRequest", parameters: parameters)
     }
     
     private static func formSoapRequest(_ request: String, parameters: [String: String]) -> URLRequest {

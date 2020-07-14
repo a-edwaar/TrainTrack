@@ -21,7 +21,7 @@ class Tests_NetworkManager : XCTestCase {
         /// inject mock and execute request
         var networkResultOptional : Result<Data, Error>?
         let client = NetworkManager(p: NetworkMock())
-        client.executeRequest(request: URLRequest.station(station: "BHM")){ result in
+        client.executeRequest(request: StationRequest(station: Station(id: "BHM", name: "Birmingham New Street"), filterStation: nil, type: .departure).getURL()){ result in
             networkResultOptional = result
         }
         
@@ -50,7 +50,7 @@ class Tests_NetworkManager : XCTestCase {
         /// inject mock and execute request
         var networkResultOptional : Result<Data, Error>?
         let client = NetworkManager(p: NetworkMock())
-        client.executeRequest(request: URLRequest.station(station: "BHM")){ result in
+        client.executeRequest(request: StationRequest(station: Station(id: "BHM", name: "Birmingham New Street"), filterStation: nil, type: .departure).getURL()){ result in
             networkResultOptional = result
         }
         
@@ -79,7 +79,7 @@ class Tests_NetworkManager : XCTestCase {
         /// inject mock and execute request
         var networkResultOptional : Result<Data, Error>?
         let client = NetworkManager(p: NetworkMock())
-        client.executeRequest(request: URLRequest.station(station: "BHM")){ result in
+        client.executeRequest(request: StationRequest(station: Station(id: "BHM", name: "Birmingham New Street"), filterStation: nil, type: .departure).getURL()){ result in
             networkResultOptional = result
         }
         
