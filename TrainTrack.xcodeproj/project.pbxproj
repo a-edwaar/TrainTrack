@@ -172,6 +172,18 @@
 		CAE6C21424B718C400524C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
 		CAE6C21524B718C800524C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
 		CAE6C21624B718C900524C9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC53F4924AF521800EF2D54 /* Assets.xcassets */; };
+		CAE9776824C3139700C81B86 /* PinnedRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776724C3139700C81B86 /* PinnedRouteView.swift */; };
+		CAE9776924C3139700C81B86 /* PinnedRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776724C3139700C81B86 /* PinnedRouteView.swift */; };
+		CAE9776A24C3139700C81B86 /* PinnedRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776724C3139700C81B86 /* PinnedRouteView.swift */; };
+		CAE9776B24C3139700C81B86 /* PinnedRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776724C3139700C81B86 /* PinnedRouteView.swift */; };
+		CAE9776D24C3177C00C81B86 /* PinnedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776C24C3177C00C81B86 /* PinnedLabelView.swift */; };
+		CAE9776E24C3177C00C81B86 /* PinnedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776C24C3177C00C81B86 /* PinnedLabelView.swift */; };
+		CAE9776F24C3177C00C81B86 /* PinnedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776C24C3177C00C81B86 /* PinnedLabelView.swift */; };
+		CAE9777024C3177C00C81B86 /* PinnedLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9776C24C3177C00C81B86 /* PinnedLabelView.swift */; };
+		CAE9777224C317F700C81B86 /* PinnedRouteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9777124C317F700C81B86 /* PinnedRouteContentView.swift */; };
+		CAE9777324C317F700C81B86 /* PinnedRouteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9777124C317F700C81B86 /* PinnedRouteContentView.swift */; };
+		CAE9777424C317F700C81B86 /* PinnedRouteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9777124C317F700C81B86 /* PinnedRouteContentView.swift */; };
+		CAE9777524C317F700C81B86 /* PinnedRouteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9777124C317F700C81B86 /* PinnedRouteContentView.swift */; };
 		CAE9C9E824B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
 		CAE9C9E924B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
 		CAE9C9EA24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */; };
@@ -189,10 +201,20 @@
 		CAE9C9F824B1C27A0089D613 /* StationLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */; };
 		CAE9C9FA24B1C6C60089D613 /* Tests_Service+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9F924B1C6C60089D613 /* Tests_Service+SwiftUI.swift */; };
 		CAE9C9FC24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9C9FB24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift */; };
+		CAEE07F924C32CE1003A9800 /* PinnedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */; };
+		CAEE07FA24C32CE1003A9800 /* PinnedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */; };
+		CAEE07FB24C32CE1003A9800 /* PinnedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */; };
+		CAEE07FC24C32CE1003A9800 /* PinnedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */; };
+		CAEE07FD24C32CE1003A9800 /* PinnedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */; };
+		CAEE07FE24C32CE1003A9800 /* PinnedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */; };
 		CAF231B424BEF9AF00757027 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF231B324BEF9AF00757027 /* SearchView.swift */; };
 		CAF231B524BEF9AF00757027 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF231B324BEF9AF00757027 /* SearchView.swift */; };
 		CAF231B624BEF9AF00757027 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF231B324BEF9AF00757027 /* SearchView.swift */; };
 		CAF231B724BEF9AF00757027 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF231B324BEF9AF00757027 /* SearchView.swift */; };
+		CAFCB3C224C329D500A66C9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFCB3C124C329D400A66C9B /* HomeView.swift */; };
+		CAFCB3C324C329D500A66C9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFCB3C124C329D400A66C9B /* HomeView.swift */; };
+		CAFCB3C424C329D500A66C9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFCB3C124C329D400A66C9B /* HomeView.swift */; };
+		CAFCB3C524C329D500A66C9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFCB3C124C329D400A66C9B /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,12 +319,17 @@
 		CAC716BD24BC83A900AB78D0 /* RequestService_noServices.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RequestService_noServices.xml; sourceTree = "<group>"; };
 		CAC716BF24BC93F300AB78D0 /* RequestService_noIDorScheduledTime.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RequestService_noIDorScheduledTime.xml; sourceTree = "<group>"; };
 		CAC716C124BC9AD900AB78D0 /* RequestService_departures.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RequestService_departures.xml; sourceTree = "<group>"; };
+		CAE9776724C3139700C81B86 /* PinnedRouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedRouteView.swift; sourceTree = "<group>"; };
+		CAE9776C24C3177C00C81B86 /* PinnedLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedLabelView.swift; sourceTree = "<group>"; };
+		CAE9777124C317F700C81B86 /* PinnedRouteContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedRouteContentView.swift; sourceTree = "<group>"; };
 		CAE9C9E724B1BF7B0089D613 /* ServiceDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDestinationView.swift; sourceTree = "<group>"; };
 		CAE9C9ED24B1C0490089D613 /* ServiceDurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDurationView.swift; sourceTree = "<group>"; };
 		CAE9C9F324B1C27A0089D613 /* StationLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationLoadingView.swift; sourceTree = "<group>"; };
 		CAE9C9F924B1C6C60089D613 /* Tests_Service+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tests_Service+SwiftUI.swift"; sourceTree = "<group>"; };
 		CAE9C9FB24B1DD9D0089D613 /* Tests_Status+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tests_Status+SwiftUI.swift"; sourceTree = "<group>"; };
+		CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedRequest.swift; sourceTree = "<group>"; };
 		CAF231B324BEF9AF00757027 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		CAFCB3C124C329D400A66C9B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,9 +415,11 @@
 				CA25A1F524AF52C80076B37B /* Service.swift */,
 				CA25A1F624AF52C80076B37B /* Status+SwiftUI.swift */,
 				CA25A1F824AF52C80076B37B /* Status.swift */,
+				CA25A21824AF532E0076B37B /* Type.swift */,
 				CA25A1F924AF52C80076B37B /* AlertItem.swift */,
 				CA2957DE24BDD22900BB65B5 /* Station.swift */,
 				CAC3F68E24C1FAB400B403BE /* StationRequest.swift */,
+				CAEE07F824C32CE1003A9800 /* PinnedRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,7 +428,6 @@
 			isa = PBXGroup;
 			children = (
 				CA25A21724AF532E0076B37B /* RequestService.swift */,
-				CA25A21824AF532E0076B37B /* Type.swift */,
 				CA25A21924AF532E0076B37B /* NetworkManager.swift */,
 				CA25A21A24AF532E0076B37B /* URLRequest+nationalrail.swift */,
 				CA25A21B24AF532E0076B37B /* NetworkError.swift */,
@@ -420,8 +448,11 @@
 		CA25A22024AF532E0076B37B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CA23100B24BDCFD500213817 /* Station */,
+				CAFCB3C724C32ADA00A66C9B /* Pinned */,
 				CAC3F69C24C2FA6C00B403BE /* Search */,
 				CA25A22424AF532E0076B37B /* ContentView.swift */,
+				CAFCB3C124C329D400A66C9B /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,7 +513,6 @@
 		CAC3F69C24C2FA6C00B403BE /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				CA23100B24BDCFD500213817 /* Station */,
 				CAF231B324BEF9AF00757027 /* SearchView.swift */,
 				CA2957EC24BDFF0800BB65B5 /* StationPickerView.swift */,
 				CAC3F69524C2EF1E00B403BE /* SearchBar.swift */,
@@ -567,6 +597,16 @@
 				CAC53F6F24AF521800EF2D54 /* Info.plist */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		CAFCB3C724C32ADA00A66C9B /* Pinned */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9776724C3139700C81B86 /* PinnedRouteView.swift */,
+				CAE9776C24C3177C00C81B86 /* PinnedLabelView.swift */,
+				CAE9777124C317F700C81B86 /* PinnedRouteContentView.swift */,
+			);
+			path = Pinned;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -833,6 +873,7 @@
 				CAC3F69424C1FAB400B403BE /* StationRequest.swift in Sources */,
 				CAA787C124B4F29700377A11 /* ServiceDurationView.swift in Sources */,
 				CAA787C524B4F2A400377A11 /* Service+SwiftUI.swift in Sources */,
+				CAEE07FE24C32CE1003A9800 /* PinnedRequest.swift in Sources */,
 				CA2957E424BDD22900BB65B5 /* Station.swift in Sources */,
 				CAA787CC24B4F2B200377A11 /* Type.swift in Sources */,
 				CA23ED8124B4F1B500C5CE87 /* TrainTrackWidget.swift in Sources */,
@@ -858,6 +899,7 @@
 				CA25A27B24AFC2870076B37B /* Tests_NetworkError.swift in Sources */,
 				CA25A28224AFC2BF0076B37B /* Type.swift in Sources */,
 				CAE9C9FA24B1C6C60089D613 /* Tests_Service+SwiftUI.swift in Sources */,
+				CAEE07FD24C32CE1003A9800 /* PinnedRequest.swift in Sources */,
 				CA25A28924AFC2D50076B37B /* Service+SwiftUI.swift in Sources */,
 				CA6E6FE424B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A28A24AFC2D50076B37B /* Service.swift in Sources */,
@@ -891,11 +933,14 @@
 				CA25A22F24AF532F0076B37B /* NetworkManager.swift in Sources */,
 				CA25A1FA24AF52C80076B37B /* Service+SwiftUI.swift in Sources */,
 				CAF231B424BEF9AF00757027 /* SearchView.swift in Sources */,
+				CAE9777224C317F700C81B86 /* PinnedRouteContentView.swift in Sources */,
 				CAE9C9E824B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
 				CA25A25724AF532F0076B37B /* StationViewModel.swift in Sources */,
 				CA25A20224AF52C80076B37B /* Service.swift in Sources */,
+				CAFCB3C224C329D500A66C9B /* HomeView.swift in Sources */,
 				CA25A22724AF532F0076B37B /* RequestService.swift in Sources */,
 				CA2957ED24BDFF0800BB65B5 /* StationPickerView.swift in Sources */,
+				CAE9776824C3139700C81B86 /* PinnedRouteView.swift in Sources */,
 				CA25A20E24AF52C80076B37B /* Status.swift in Sources */,
 				CAC3F68F24C1FAB400B403BE /* StationRequest.swift in Sources */,
 				CA25A22B24AF532F0076B37B /* Type.swift in Sources */,
@@ -906,8 +951,10 @@
 				CAC3F69624C2EF1E00B403BE /* SearchBar.swift in Sources */,
 				CA2957DF24BDD22900BB65B5 /* Station.swift in Sources */,
 				CA25A21224AF52C80076B37B /* AlertItem.swift in Sources */,
+				CAE9776D24C3177C00C81B86 /* PinnedLabelView.swift in Sources */,
 				CA25A23F24AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
 				CA25A24F24AF532F0076B37B /* ServiceView.swift in Sources */,
+				CAEE07F924C32CE1003A9800 /* PinnedRequest.swift in Sources */,
 				CA6E6FE024B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A24724AF532F0076B37B /* ServicesForStationView.swift in Sources */,
 			);
@@ -922,11 +969,15 @@
 				CA25A25424AF532F0076B37B /* ContentView.swift in Sources */,
 				CAC3F69024C1FAB400B403BE /* StationRequest.swift in Sources */,
 				CA2957E724BDD2A300BB65B5 /* StationsViewModel.swift in Sources */,
+				CAFCB3C324C329D500A66C9B /* HomeView.swift in Sources */,
 				CA25A23424AF532F0076B37B /* URLRequest+nationalrail.swift in Sources */,
 				CA63B6C824C19E570093A2FC /* View+FullScreenCover.swift in Sources */,
 				CA25A23824AF532F0076B37B /* NetworkError.swift in Sources */,
 				CA25A23024AF532F0076B37B /* NetworkManager.swift in Sources */,
+				CAE9776E24C3177C00C81B86 /* PinnedLabelView.swift in Sources */,
 				CA25A25C24AFC0F40076B37B /* View+NavigationViewTitle.swift in Sources */,
+				CAE9776924C3139700C81B86 /* PinnedRouteView.swift in Sources */,
+				CAE9777324C317F700C81B86 /* PinnedRouteContentView.swift in Sources */,
 				CA25A1FB24AF52C80076B37B /* Service+SwiftUI.swift in Sources */,
 				CA25A25824AF532F0076B37B /* StationViewModel.swift in Sources */,
 				CA25A20324AF52C80076B37B /* Service.swift in Sources */,
@@ -935,6 +986,7 @@
 				CA6E6FE124B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A20F24AF52C80076B37B /* Status.swift in Sources */,
 				CAC3F69724C2EF1E00B403BE /* SearchBar.swift in Sources */,
+				CAEE07FA24C32CE1003A9800 /* PinnedRequest.swift in Sources */,
 				CA2957EE24BDFF0800BB65B5 /* StationPickerView.swift in Sources */,
 				CAE9C9F524B1C27A0089D613 /* StationLoadingView.swift in Sources */,
 				CA25A22C24AF532F0076B37B /* Type.swift in Sources */,
@@ -963,11 +1015,14 @@
 				CA25A20424AF52C80076B37B /* Service.swift in Sources */,
 				CA25A25924AF532F0076B37B /* StationViewModel.swift in Sources */,
 				CAF231B624BEF9AF00757027 /* SearchView.swift in Sources */,
+				CAE9777424C317F700C81B86 /* PinnedRouteContentView.swift in Sources */,
 				CAE9C9EA24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
 				CA25A25524AF532F0076B37B /* ContentView.swift in Sources */,
 				CA25A23124AF532F0076B37B /* NetworkManager.swift in Sources */,
+				CAFCB3C424C329D500A66C9B /* HomeView.swift in Sources */,
 				CA25A21024AF52C80076B37B /* Status.swift in Sources */,
 				CA2957EF24BDFF0800BB65B5 /* StationPickerView.swift in Sources */,
+				CAE9776A24C3139700C81B86 /* PinnedRouteView.swift in Sources */,
 				CA25A25124AF532F0076B37B /* ServiceView.swift in Sources */,
 				CAC3F69124C1FAB400B403BE /* StationRequest.swift in Sources */,
 				CA25A22D24AF532F0076B37B /* Type.swift in Sources */,
@@ -978,8 +1033,10 @@
 				CAC3F69824C2EF1E00B403BE /* SearchBar.swift in Sources */,
 				CA2957E124BDD22900BB65B5 /* Station.swift in Sources */,
 				CA25A23524AF532F0076B37B /* URLRequest+nationalrail.swift in Sources */,
+				CAE9776F24C3177C00C81B86 /* PinnedLabelView.swift in Sources */,
 				CA25A20824AF52C80076B37B /* Status+SwiftUI.swift in Sources */,
 				CA25A24124AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
+				CAEE07FB24C32CE1003A9800 /* PinnedRequest.swift in Sources */,
 				CA6E6FE224B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A23D24AF532F0076B37B /* RequestServiceProtocol.swift in Sources */,
 			);
@@ -998,11 +1055,14 @@
 				CA25A20524AF52C80076B37B /* Service.swift in Sources */,
 				CA25A25A24AF532F0076B37B /* StationViewModel.swift in Sources */,
 				CAF231B724BEF9AF00757027 /* SearchView.swift in Sources */,
+				CAE9777524C317F700C81B86 /* PinnedRouteContentView.swift in Sources */,
 				CAE9C9EB24B1BF7B0089D613 /* ServiceDestinationView.swift in Sources */,
 				CA25A25624AF532F0076B37B /* ContentView.swift in Sources */,
 				CA25A23224AF532F0076B37B /* NetworkManager.swift in Sources */,
+				CAFCB3C524C329D500A66C9B /* HomeView.swift in Sources */,
 				CA25A21124AF52C80076B37B /* Status.swift in Sources */,
 				CA2957F024BDFF0800BB65B5 /* StationPickerView.swift in Sources */,
+				CAE9776B24C3139700C81B86 /* PinnedRouteView.swift in Sources */,
 				CA25A25224AF532F0076B37B /* ServiceView.swift in Sources */,
 				CAC3F69224C1FAB400B403BE /* StationRequest.swift in Sources */,
 				CA25A22E24AF532F0076B37B /* Type.swift in Sources */,
@@ -1013,8 +1073,10 @@
 				CAC3F69924C2EF1E00B403BE /* SearchBar.swift in Sources */,
 				CA2957E224BDD22900BB65B5 /* Station.swift in Sources */,
 				CA25A23624AF532F0076B37B /* URLRequest+nationalrail.swift in Sources */,
+				CAE9777024C3177C00C81B86 /* PinnedLabelView.swift in Sources */,
 				CA25A20924AF52C80076B37B /* Status+SwiftUI.swift in Sources */,
 				CA25A24224AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
+				CAEE07FC24C32CE1003A9800 /* PinnedRequest.swift in Sources */,
 				CA6E6FE324B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
 				CA25A23E24AF532F0076B37B /* RequestServiceProtocol.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Station : Identifiable{
+struct Station : Identifiable, Codable{
     let id : String
     let name : String
 }
