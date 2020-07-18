@@ -18,8 +18,8 @@ public struct RequestService {
         self.d = d
     }
     
-    public func getStationUpdate(station: String, type: Type = .departure, completion: @escaping (Result<[Service], Error>) -> Void) {
-        r.getStationUpdate(station: station, type: type) { result in
+    public func getStationUpdate(_ stationReq: StationRequest, completion: @escaping (Result<[Service], Error>) -> Void) {
+        r.getStationUpdate(stationReq) { result in
             switch result {
             case .success(let data):
                 
@@ -28,7 +28,7 @@ public struct RequestService {
                     config.shouldProcessNamespaces = true
                 }.parse(data)
                 
-                let xmlServices = type == .departure ? xml["Envelope"]["Body"]["GetDepartureBoardResponse"]["GetStationBoardResult"]["trainServices"]["service"].all : xml["Envelope"]["Body"]["GetArrivalBoardResponse"]["GetStationBoardResult"]["trainServices"]["service"].all
+                let xmlServices = stationReq.type == .departure ? xml["Envelope"]["Body"]["GetDepartureBoardResponse"]["GetStationBoardResult"]["trainServices"]["service"].all : xml["Envelope"]["Body"]["GetArrivalBoardResponse"]["GetStationBoardResult"]["trainServices"]["service"].all
                 
                 /// loop through services returned
                 var services : [Service] = []
@@ -40,7 +40,7 @@ public struct RequestService {
                     }
                     
                     /// scheduled time
-                    guard let scheduledTime = cleanTime(type == .departure ? service["std"].element?.text : service["sta"].element?.text) else{
+                    guard let scheduledTime = cleanTime(stationReq.type == .departure ? service["std"].element?.text : service["sta"].element?.text) else{
                         continue //// dont include service as should have a scheduled time
                     }
                     
@@ -48,7 +48,7 @@ public struct RequestService {
                     let platform = service["platform"].element?.text
                     
                     /// destination or origin
-                    let targetStation = type == .departure ? (service["destination"]["location"][0]["locationName"].element?.text) ?? "Unknown" : (service["origin"]["location"][0]["locationName"].element?.text) ?? "Unknown"
+                    let targetStation = stationReq.type == .departure ? (service["destination"]["location"][0]["locationName"].element?.text) ?? "Unknown" : (service["origin"]["location"][0]["locationName"].element?.text) ?? "Unknown"
                     
                     var status : Status
                     var expMins : Int
@@ -56,7 +56,7 @@ public struct RequestService {
                         status = .cancelled
                         expMins = 120 /// this doesnt matter as it won't be shown
                     }else{
-                        let estimatedTime = cleanTime(type == .departure ? service["etd"].element?.text : service["eta"].element?.text)
+                        let estimatedTime = cleanTime(stationReq.type == .departure ? service["etd"].element?.text : service["eta"].element?.text)
                         if estimatedTime == nil {
                             status = .onTime
                             expMins = calculateExpMins(scheduledTime)
@@ -121,18 +121,6 @@ public struct RequestService {
             return 120
         }
         return difference
-    }
-    
-    /// TODO wont sort for now but if implement minimal view we will
-    private func sortByExpectedMins(_ services: [Service]) -> [Service]{
-        var sortedServices = services
-        sortedServices.sort(by: { (comparingService, currentService) in
-            if comparingService.expMins < currentService.expMins {
-                return true
-            }
-            return false
-        })
-        return sortedServices
     }
     
     private func cleanTime(_ time: String?) -> String?{

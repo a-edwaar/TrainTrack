@@ -21,7 +21,7 @@ struct Provider: TimelineProvider {
     public func timeline(with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         
         /// get update for station
-        RequestService().getStationUpdate(station: "BWT"){ result in
+        RequestService().getStationUpdate(StationRequest(station: Station(id: "BHM", name: "Birmingham New Street"), filterStation: nil, type: .departure)){ result in
             switch result{
             case .success(var services):
                 /// get top service for that station

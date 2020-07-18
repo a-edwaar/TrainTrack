@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Type : String{
+public enum Type : String, Hashable{
     case departure
     case arrival
 }
