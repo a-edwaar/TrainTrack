@@ -21,8 +21,21 @@ struct Provider: IntentTimelineProvider {
     
     func timeline(for configuration: GetLatestServicesIntent, with context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         
-        let station = Station(id: configuration.station!.identifier!, name: configuration.station!.displayString)
-        let stationRequest = StationRequest(station: station, filterStation: configuration.filterStation == nil ? nil : Station(id: configuration.filterStation!.identifier!, name: configuration.filterStation!.displayString), type: configuration.type.rawValue == 2 ? .arrival : .departure)
+        /// form station request from intent
+        var station : Station
+        var filterStation : Station?
+        if configuration.type == .departure{
+            station = Station(id: configuration.DepartingStation!.identifier!, name: configuration.DepartingStation!.description)
+            if configuration.CallingStation != nil{
+                filterStation = Station(id: configuration.CallingStation!.identifier!, name: configuration.CallingStation!.displayString)
+            }
+        }else{
+            station = Station(id: configuration.ArrivingStation!.identifier!, name: configuration.ArrivingStation!.description)
+            if configuration.FromStation != nil{
+                filterStation = Station(id: configuration.FromStation!.identifier!, name: configuration.FromStation!.displayString)
+            }
+        }
+        let stationRequest = StationRequest(station: station, filterStation: filterStation, type: configuration.type == .arrival ? .arrival : .departure)
     
         /// get latest updates
         RequestService().getStationUpdate(StationRequest(station: stationRequest.station, filterStation: stationRequest.filterStation, type: stationRequest.type)){ result in
@@ -82,8 +95,8 @@ struct TrainTrackWidget: Widget {
         IntentConfiguration(kind: kind, intent: GetLatestServicesIntent.self, provider: Provider()){ entry in
             TrainTrackWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("StationBoard Widget")
+        .description("This widget shows all services arriving/departing from a station and an optional filter station.")
         .supportedFamilies([.systemLarge])
     }
 }

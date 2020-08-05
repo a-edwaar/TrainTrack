@@ -15,6 +15,7 @@
 		CA0E335E24DAA29200A76331 /* TrainTrackIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CA0E334B24DAA16600A76331 /* TrainTrackIntents.intentdefinition */; };
 		CA0E335F24DAA39A00A76331 /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2957E524BDD2A300BB65B5 /* StationsViewModel.swift */; };
 		CA0E336024DAA4C900A76331 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2957DE24BDD22900BB65B5 /* Station.swift */; };
+		CA0E336124DAE5FC00A76331 /* station_codes.csv in Resources */ = {isa = PBXBuildFile; fileRef = CA2957D724BDD0FF00BB65B5 /* station_codes.csv */; };
 		CA23ED7D24B4F1B500C5CE87 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA54415E24B325E800982C6E /* WidgetKit.framework */; };
 		CA23ED7E24B4F1B500C5CE87 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA54416024B325E800982C6E /* SwiftUI.framework */; };
 		CA23ED8124B4F1B500C5CE87 /* TrainTrackWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA23ED8024B4F1B500C5CE87 /* TrainTrackWidget.swift */; };
@@ -821,6 +822,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0E336124DAE5FC00A76331 /* station_codes.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

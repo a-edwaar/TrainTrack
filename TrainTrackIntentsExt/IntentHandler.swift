@@ -9,46 +9,58 @@ import Intents
 
 class IntentHandler: INExtension {
     
-    let stations = StationsViewModel().stations
+    var stationSections : [INObjectSection<IntentStation>] = []
+    
+    override init() {
+        super.init()
+        self.stationSections = loadStationsAndConvert()
+    }
     
     override func handler(for intent: INIntent) -> Any {
         // This is the default implementation.  If you want different objects to handle different intents,
         // you can override this and return the handler you want for that particular intent.
-        
         return self
     }
     
+    private func loadStationsAndConvert() -> [INObjectSection<IntentStation>]{
+        /// get list of stations from model in app and convert
+        let stationsToConvert = StationsViewModel().stations
+        var sections = [INObjectSection<IntentStation>]()
+        for section in stationsToConvert.keys.sorted() {
+            let stationsForKey = stationsToConvert[section]!.map { station in
+                return IntentStation(identifier: station.id, display: station.name)
+            }
+            sections.append(INObjectSection(title: section, items: stationsForKey))
+        }
+        return sections
+    }
 }
 
 extension IntentHandler: GetLatestServicesIntentHandling{
     
-    func provideStationOptionsCollection(for intent: GetLatestServicesIntent, with completion: @escaping (INObjectCollection<IntentStation>?, Error?) -> Void) {
-        completion(getStations(), nil)
+    func provideDepartingStationOptionsCollection(for intent: GetLatestServicesIntent, with completion: @escaping (INObjectCollection<IntentStation>?, Error?) -> Void) {
+        completion(INObjectCollection(sections: stationSections), nil)
     }
     
-    func provideFilterStationOptionsCollection(for intent: GetLatestServicesIntent, with completion: @escaping (INObjectCollection<IntentStation>?, Error?) -> Void) {
-        completion(getStations(), nil)
+    func provideCallingStationOptionsCollection(for intent: GetLatestServicesIntent, with completion: @escaping (INObjectCollection<IntentStation>?, Error?) -> Void) {
+        completion(INObjectCollection(sections: stationSections), nil)
     }
     
-    private func getStations() -> INObjectCollection<IntentStation>{
-        /// get list of stations from model in app and convert
-//        let stationsToConvert = StationsViewModel().stations
-//        var stations = [IntentStation]()
-//        for section in stationsToConvert.keys.sorted() {
-//            let stationsForKey = stationsToConvert[section]!.map { station in
-//                return IntentStation(identifier: station.id, display: station.name)
-//            }
-//            stations.append(contentsOf: stationsForKey)
-//        }
-        /// return collection
-        return INObjectCollection(items: [IntentStation(identifier: "BHM", display: "Birmingham New Street"), IntentStation(identifier: "BTG", display: "Barnt Green")])
+    func provideArrivingStationOptionsCollection(for intent: GetLatestServicesIntent, with completion: @escaping (INObjectCollection<IntentStation>?, Error?) -> Void) {
+        completion(INObjectCollection(sections: stationSections), nil)
     }
     
-    func defaultStation(for intent: GetLatestServicesIntent) -> IntentStation? {
-        return IntentStation(identifier: "BHM", display: "Birmingham New Street")
+    func provideFromStationOptionsCollection(for intent: GetLatestServicesIntent, with completion: @escaping (INObjectCollection<IntentStation>?, Error?) -> Void) {
+        completion(INObjectCollection(sections: stationSections), nil)
     }
     
-    func defaultFilterStation(for intent: GetLatestServicesIntent) -> IntentStation? {
-        return IntentStation(identifier: "BTG", display: "Barnt Green")
+    /// TODO: make the below try use the nearest station
+    
+    func defaultDepartingStation(for intent: GetLatestServicesIntent) -> IntentStation? {
+        IntentStation(identifier: "BHM", display: "Birmingham New Street")
+    }
+    
+    func defaultArrivingStation(for intent: GetLatestServicesIntent) -> IntentStation? {
+        IntentStation(identifier: "BHM", display: "Birmingham New Street")
     }
 }

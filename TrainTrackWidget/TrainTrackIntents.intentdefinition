@@ -27,23 +27,23 @@
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>arrival</string>
+					<string>Departures</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>FxqoSK</string>
+					<string>hriH6N</string>
 					<key>INEnumValueIndex</key>
 					<integer>1</integer>
 					<key>INEnumValueName</key>
-					<string>arrival</string>
+					<string>departure</string>
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>departure</string>
+					<string>Arrivals</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>wsUJGF</string>
+					<string>CXoQDH</string>
 					<key>INEnumValueIndex</key>
 					<integer>2</integer>
 					<key>INEnumValueName</key>
-					<string>departure</string>
+					<string>arrival</string>
 				</dict>
 			</array>
 		</dict>
@@ -72,7 +72,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>6</integer>
+			<integer>11</integer>
 			<key>INIntentName</key>
 			<string>GetLatestServices</string>
 			<key>INIntentParameters</key>
@@ -141,13 +141,13 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Station</string>
+					<string>Departing From</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>KXf0SA</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>2</integer>
 					<key>INIntentParameterName</key>
-					<string>station</string>
+					<string>DepartingStation</string>
 					<key>INIntentParameterObjectType</key>
 					<string>IntentStation</string>
 					<key>INIntentParameterObjectTypeNamespace</key>
@@ -170,7 +170,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>There are ${count} options matching ‘${station}’.</string>
+							<string>There are ${count} options matching ‘${DepartingStation}’.</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>ERMxfh</string>
 							<key>INIntentParameterPromptDialogType</key>
@@ -180,13 +180,22 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>Just to confirm, you wanted ‘${station}’?</string>
+							<string>Just to confirm, you wanted ‘${DepartingStation}’?</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>gwBkDs</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Confirmation</string>
 						</dict>
 					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>type</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>EnumHasExactValue</string>
+						<key>INIntentParameterRelationshipPredicateValue</key>
+						<string>departure</string>
+					</dict>
 					<key>INIntentParameterSupportsDynamicEnumeration</key>
 					<true/>
 					<key>INIntentParameterTag</key>
@@ -198,13 +207,13 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Filter Station</string>
+					<string>Calling At</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>gBLp8B</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>3</integer>
 					<key>INIntentParameterName</key>
-					<string>filterStation</string>
+					<string>CallingStation</string>
 					<key>INIntentParameterObjectType</key>
 					<string>IntentStation</string>
 					<key>INIntentParameterObjectTypeNamespace</key>
@@ -227,7 +236,7 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>There are ${count} options matching ‘${filterStation}’.</string>
+							<string>There are ${count} options matching ‘${CallingStation}’.</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>e3AS7l</string>
 							<key>INIntentParameterPromptDialogType</key>
@@ -237,17 +246,158 @@
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
 							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>Just to confirm, you wanted ‘${filterStation}’?</string>
+							<string>Just to confirm, you wanted ‘${CallingStation}’?</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
 							<string>OObBce</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Confirmation</string>
 						</dict>
 					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>type</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>EnumHasExactValue</string>
+						<key>INIntentParameterRelationshipPredicateValue</key>
+						<string>departure</string>
+					</dict>
 					<key>INIntentParameterSupportsDynamicEnumeration</key>
 					<true/>
 					<key>INIntentParameterTag</key>
 					<integer>6</integer>
+					<key>INIntentParameterType</key>
+					<string>Object</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Arriving At</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>QfifKe</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>4</integer>
+					<key>INIntentParameterName</key>
+					<string>ArrivingStation</string>
+					<key>INIntentParameterObjectType</key>
+					<string>IntentStation</string>
+					<key>INIntentParameterObjectTypeNamespace</key>
+					<string>j66kal</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${ArrivingStation}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>pLcyIj</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${ArrivingStation}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>X3km9H</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>type</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>EnumHasExactValue</string>
+						<key>INIntentParameterRelationshipPredicateValue</key>
+						<string>arrival</string>
+					</dict>
+					<key>INIntentParameterSupportsDynamicEnumeration</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>9</integer>
+					<key>INIntentParameterType</key>
+					<string>Object</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>From</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>CqBRu9</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>5</integer>
+					<key>INIntentParameterName</key>
+					<string>FromStation</string>
+					<key>INIntentParameterObjectType</key>
+					<string>IntentStation</string>
+					<key>INIntentParameterObjectTypeNamespace</key>
+					<string>j66kal</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>There are ${count} options matching ‘${FromStation}’.</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>lEQWG7</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>DisambiguationIntroduction</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${FromStation}’?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>052Tp9</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>type</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>EnumHasExactValue</string>
+						<key>INIntentParameterRelationshipPredicateValue</key>
+						<string>arrival</string>
+					</dict>
+					<key>INIntentParameterSupportsDynamicEnumeration</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>11</integer>
 					<key>INIntentParameterType</key>
 					<string>Object</string>
 				</dict>
