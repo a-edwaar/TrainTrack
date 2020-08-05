@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0E334C24DAA16600A76331 /* TrainTrackIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CA0E334B24DAA16600A76331 /* TrainTrackIntents.intentdefinition */; };
+		CA0E335424DAA27800A76331 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E335324DAA27800A76331 /* IntentHandler.swift */; };
+		CA0E335824DAA27800A76331 /* TrainTrackIntentsExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA0E335124DAA27800A76331 /* TrainTrackIntentsExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CA0E335C24DAA28D00A76331 /* TrainTrackIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CA0E334B24DAA16600A76331 /* TrainTrackIntents.intentdefinition */; };
+		CA0E335D24DAA29000A76331 /* TrainTrackIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CA0E334B24DAA16600A76331 /* TrainTrackIntents.intentdefinition */; };
+		CA0E335E24DAA29200A76331 /* TrainTrackIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CA0E334B24DAA16600A76331 /* TrainTrackIntents.intentdefinition */; };
+		CA0E335F24DAA39A00A76331 /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2957E524BDD2A300BB65B5 /* StationsViewModel.swift */; };
+		CA0E336024DAA4C900A76331 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2957DE24BDD22900BB65B5 /* Station.swift */; };
 		CA23ED7D24B4F1B500C5CE87 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA54415E24B325E800982C6E /* WidgetKit.framework */; };
 		CA23ED7E24B4F1B500C5CE87 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA54416024B325E800982C6E /* SwiftUI.framework */; };
 		CA23ED8124B4F1B500C5CE87 /* TrainTrackWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA23ED8024B4F1B500C5CE87 /* TrainTrackWidget.swift */; };
@@ -196,6 +204,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CA0E335624DAA27800A76331 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAC53F4224AF521500EF2D54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA0E335024DAA27800A76331;
+			remoteInfo = TrainTrackIntentsExt;
+		};
 		CA23ED8524B4F1BB00C5CE87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAC53F4224AF521500EF2D54 /* Project object */;
@@ -234,6 +249,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				CA23ED8724B4F1BB00C5CE87 /* TrainTrackWidgetExtension.appex in Embed App Extensions */,
+				CA0E335824DAA27800A76331 /* TrainTrackIntentsExt.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +257,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CA0E334B24DAA16600A76331 /* TrainTrackIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TrainTrackIntents.intentdefinition; sourceTree = "<group>"; };
+		CA0E335124DAA27800A76331 /* TrainTrackIntentsExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TrainTrackIntentsExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0E335324DAA27800A76331 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		CA0E335524DAA27800A76331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA23ED7C24B4F1B500C5CE87 /* TrainTrackWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TrainTrackWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA23ED8024B4F1B500C5CE87 /* TrainTrackWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackWidget.swift; sourceTree = "<group>"; };
 		CA23ED8224B4F1BB00C5CE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -279,6 +299,7 @@
 		CA6E6FDF24B1BE8D00DD6FE0 /* ServiceCancelledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCancelledView.swift; sourceTree = "<group>"; };
 		CA864A6824BC9EED00E678C4 /* RequestService_arrivals.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RequestService_arrivals.xml; sourceTree = "<group>"; };
 		CA864A6C24BD096700E678C4 /* RequestService_cancelled.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RequestService_cancelled.xml; sourceTree = "<group>"; };
+		CA89758024D9CD72009BDB17 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = Library/Frameworks/IntentsUI.framework; sourceTree = DEVELOPER_DIR; };
 		CAC3F68E24C1FAB400B403BE /* StationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRequest.swift; sourceTree = "<group>"; };
 		CAC3F69524C2EF1E00B403BE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CAC53F4724AF521600EF2D54 /* TrainTrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrackApp.swift; sourceTree = "<group>"; };
@@ -306,6 +327,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CA0E334E24DAA27800A76331 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA23ED7924B4F1B500C5CE87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,6 +385,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA0E335224DAA27800A76331 /* TrainTrackIntentsExt */ = {
+			isa = PBXGroup;
+			children = (
+				CA0E335324DAA27800A76331 /* IntentHandler.swift */,
+				CA0E335524DAA27800A76331 /* Info.plist */,
+			);
+			path = TrainTrackIntentsExt;
+			sourceTree = "<group>";
+		};
 		CA23100B24BDCFD500213817 /* Station */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +414,7 @@
 				CA23ED8024B4F1B500C5CE87 /* TrainTrackWidget.swift */,
 				CA23ED8224B4F1BB00C5CE87 /* Assets.xcassets */,
 				CA23ED8424B4F1BB00C5CE87 /* Info.plist */,
+				CA0E334B24DAA16600A76331 /* TrainTrackIntents.intentdefinition */,
 			);
 			path = TrainTrackWidget;
 			sourceTree = "<group>";
@@ -475,6 +513,7 @@
 			children = (
 				CA54415E24B325E800982C6E /* WidgetKit.framework */,
 				CA54416024B325E800982C6E /* SwiftUI.framework */,
+				CA89758024D9CD72009BDB17 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -501,6 +540,7 @@
 				CAC53F6C24AF521800EF2D54 /* Tests macOS */,
 				CA25A26224AFC20B0076B37B /* Tests Shared */,
 				CA23ED7F24B4F1B500C5CE87 /* TrainTrackWidget */,
+				CA0E335224DAA27800A76331 /* TrainTrackIntentsExt */,
 				CA54415D24B325E800982C6E /* Frameworks */,
 				CAC53F4F24AF521800EF2D54 /* Products */,
 			);
@@ -528,6 +568,7 @@
 				CAC53F6924AF521800EF2D54 /* Tests macOS.xctest */,
 				CA25A26124AFC20B0076B37B /* Tests Shared.xctest */,
 				CA23ED7C24B4F1B500C5CE87 /* TrainTrackWidgetExtension.appex */,
+				CA0E335124DAA27800A76331 /* TrainTrackIntentsExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -572,6 +613,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CA0E335024DAA27800A76331 /* TrainTrackIntentsExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA0E335924DAA27800A76331 /* Build configuration list for PBXNativeTarget "TrainTrackIntentsExt" */;
+			buildPhases = (
+				CA0E334D24DAA27800A76331 /* Sources */,
+				CA0E334E24DAA27800A76331 /* Frameworks */,
+				CA0E334F24DAA27800A76331 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrainTrackIntentsExt;
+			productName = TrainTrackIntentsExt;
+			productReference = CA0E335124DAA27800A76331 /* TrainTrackIntentsExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CA23ED7B24B4F1B500C5CE87 /* TrainTrackWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA23ED8824B4F1BB00C5CE87 /* Build configuration list for PBXNativeTarget "TrainTrackWidgetExtension" */;
@@ -625,6 +683,7 @@
 			);
 			dependencies = (
 				CA23ED8624B4F1BB00C5CE87 /* PBXTargetDependency */,
+				CA0E335724DAA27800A76331 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			packageProductDependencies = (
@@ -704,6 +763,9 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					CA0E335024DAA27800A76331 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					CA23ED7B24B4F1B500C5CE87 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -749,11 +811,19 @@
 				CAC53F6824AF521800EF2D54 /* Tests macOS */,
 				CA25A26024AFC20B0076B37B /* Tests Shared */,
 				CA23ED7B24B4F1B500C5CE87 /* TrainTrackWidgetExtension */,
+				CA0E335024DAA27800A76331 /* TrainTrackIntentsExt */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CA0E334F24DAA27800A76331 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA23ED7A24B4F1B500C5CE87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -816,6 +886,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CA0E334D24DAA27800A76331 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA0E335F24DAA39A00A76331 /* StationsViewModel.swift in Sources */,
+				CA0E335424DAA27800A76331 /* IntentHandler.swift in Sources */,
+				CA0E336024DAA4C900A76331 /* Station.swift in Sources */,
+				CA0E335C24DAA28D00A76331 /* TrainTrackIntents.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA23ED7824B4F1B500C5CE87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -841,6 +922,7 @@
 				CAA787C424B4F29700377A11 /* ServiceCancelledView.swift in Sources */,
 				CAA787CE24B4F2B200377A11 /* RequestService.swift in Sources */,
 				CAA787D324B4F2C700377A11 /* NetworkManagerProtocol.swift in Sources */,
+				CA0E335D24DAA29000A76331 /* TrainTrackIntents.intentdefinition in Sources */,
 				CAA787C924B4F2A400377A11 /* Status+SwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -909,6 +991,7 @@
 				CA25A23F24AF532F0076B37B /* NetworkManagerProtocol.swift in Sources */,
 				CA25A24F24AF532F0076B37B /* ServiceView.swift in Sources */,
 				CA6E6FE024B1BE8D00DD6FE0 /* ServiceCancelledView.swift in Sources */,
+				CA0E334C24DAA16600A76331 /* TrainTrackIntents.intentdefinition in Sources */,
 				CA25A24724AF532F0076B37B /* ServicesForStationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,6 +1019,7 @@
 				CA25A20F24AF52C80076B37B /* Status.swift in Sources */,
 				CAC3F69724C2EF1E00B403BE /* SearchBar.swift in Sources */,
 				CA2957EE24BDFF0800BB65B5 /* StationPickerView.swift in Sources */,
+				CA0E335E24DAA29200A76331 /* TrainTrackIntents.intentdefinition in Sources */,
 				CAE9C9F524B1C27A0089D613 /* StationLoadingView.swift in Sources */,
 				CA25A22C24AF532F0076B37B /* Type.swift in Sources */,
 				CA25A20724AF52C80076B37B /* Status+SwiftUI.swift in Sources */,
@@ -1023,6 +1107,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CA0E335724DAA27800A76331 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA0E335024DAA27800A76331 /* TrainTrackIntentsExt */;
+			targetProxy = CA0E335624DAA27800A76331 /* PBXContainerItemProxy */;
+		};
 		CA23ED8624B4F1BB00C5CE87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CA23ED7B24B4F1B500C5CE87 /* TrainTrackWidgetExtension */;
@@ -1046,6 +1135,47 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CA0E335A24DAA27800A76331 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 962R5W99CR;
+				INFOPLIST_FILE = TrainTrackIntentsExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArchieEdwards.TrainTrack.TrainTrackIntentsExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA0E335B24DAA27800A76331 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 962R5W99CR;
+				INFOPLIST_FILE = TrainTrackIntentsExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ArchieEdwards.TrainTrack.TrainTrackIntentsExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		CA23ED8924B4F1BB00C5CE87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1438,6 +1568,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CA0E335924DAA27800A76331 /* Build configuration list for PBXNativeTarget "TrainTrackIntentsExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0E335A24DAA27800A76331 /* Debug */,
+				CA0E335B24DAA27800A76331 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CA23ED8824B4F1BB00C5CE87 /* Build configuration list for PBXNativeTarget "TrainTrackWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

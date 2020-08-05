@@ -25,6 +25,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>TrainTrackIntentsExt.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>TrainTrackWidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -74,6 +79,16 @@
 			<true/>
 		</dict>
 		<key>CAC53F6824AF521800EF2D54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAD2605724D9D7AB00079619</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAF1274624D9D38E00894646</key>
 		<dict>
 			<key>primary</key>
 			<true/>
